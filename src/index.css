@@ -1,12 +1,24 @@
 @import "tailwindcss";
 @plugin 'daisyui';
-@plugin "daisyui/theme" {
-  name: "light";
-  default: true;
+[data-theme="light"] {
   --color-primary: rgb(15, 69, 93);
   --color-secondary: rgb(253, 218, 179);
   --color-accent: rgb(246, 239, 230);
 }
+[data-theme="dark"] {
+  --color-primary: rgb(15, 69, 93);
+  --color-secondary: rgb(253, 218, 179);
+  --color-accent: rgb(12, 35, 44);
+}
+
+.btn {
+  @apply bg-secondary rounded-full text-lg text-[#422C12] border-none;
+}
+
+.active {
+  border-bottom: 2px solid;
+}
+
 .sand {
   font-family: "Quicksand", sans-serif;
   font-optical-sizing: auto;
