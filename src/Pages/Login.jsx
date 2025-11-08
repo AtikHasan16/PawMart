@@ -2,9 +2,11 @@ import React, { use } from "react";
 import { Link } from "react-router";
 import { FcGoogle } from "react-icons/fc";
 import { MdOutlineEmail, MdOutlineLock } from "react-icons/md";
+import AuthContext from "../Context/AuthContext";
+import toast from "react-hot-toast";
 
 const Login = () => {
-    {currentUser} = use()
+  const { loginWithGoogle } = use(AuthContext);
   const handleLoginForm = (e) => {
     e.preventDefault();
 
@@ -14,8 +16,9 @@ const Login = () => {
   };
 
   const handleGoogleLogin = () => {
-
-
+    loginWithGoogle().then(() => {
+      toast.success("successfully logged in");
+    });
   };
   return (
     <div className="min-h-screen flex items-center justify-center p-4 sand">

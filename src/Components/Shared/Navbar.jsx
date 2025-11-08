@@ -1,9 +1,12 @@
-import React from "react";
+import React, { use } from "react";
 import Container from "../Container";
 import { CgMenuGridR } from "react-icons/cg";
 import { Link, NavLink } from "react-router";
 import logo from "../../assets/LOGO.png";
+import AuthContext from "../../Context/AuthContext";
+import toast from "react-hot-toast";
 const Navbar = () => {
+  const { currentUser, logOutUser } = use(AuthContext);
   const links = (
     <>
       <li>
@@ -16,23 +19,39 @@ const Navbar = () => {
           Pets & Supplies
         </NavLink>
       </li>
-      <li>
-        <NavLink to={"/add-products"} className="text-secondary  text-lg ">
-          Add Listings
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to={"/my-products"} className="text-secondary  text-lg ">
-          My Listings
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to={"/my-orders"} className="text-secondary  text-lg ">
-          My Orders
-        </NavLink>
-      </li>
+      {!currentUser ? (
+        ""
+      ) : (
+        <>
+          <li>
+            <NavLink to={"/add-products"} className="text-secondary  text-lg ">
+              Add Listings
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to={"/my-products"} className="text-secondary  text-lg ">
+              My Listings
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to={"/my-orders"} className="text-secondary  text-lg ">
+              My Orders
+            </NavLink>
+          </li>
+        </>
+      )}
     </>
   );
+
+  const handleLogout = () => {
+    logOutUser()
+      .then(() => {
+        toast.success("Successfully signout");
+      })
+      .catch((err) => {
+        toast.error(err.code);
+      });
+  };
   return (
     <div className="">
       <Container>
@@ -66,9 +85,9 @@ const Navbar = () => {
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">{links}</ul>
           </div>
-          {0 ? (
+          {currentUser ? (
             <div className="navbar-end">
-              <button className="btn" onClick={"handleLogout"}>
+              <button className="btn" onClick={handleLogout}>
                 Logout
               </button>
             </div>

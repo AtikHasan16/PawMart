@@ -8,6 +8,7 @@ import AddListing from "../Pages/AddListing";
 import MyListing from "../Pages/MyListing";
 import ErrorPage from "../Error/ErrorPage";
 import MyOrders from "../Pages/MyOrders";
+import GuestRouter from "./GuestRouter";
 
 const router = createBrowserRouter([
   {
@@ -20,8 +21,23 @@ const router = createBrowserRouter([
       { path: "/add-products", element: <AddListing></AddListing> },
       { path: "/my-products", element: <MyListing></MyListing> },
       { path: "/my-orders", element: <MyOrders></MyOrders> },
-      { path: "/login", element: <Login></Login> },
-      { path: "/register", element: <Register></Register> },
+      {
+        path: "/login",
+        element: (
+          <GuestRouter>
+            <Login></Login>
+          </GuestRouter>
+        ),
+      },
+      {
+        path: "/register",
+        element: (
+          <GuestRouter>
+            {" "}
+            <Register></Register>
+          </GuestRouter>
+        ),
+      },
     ],
   },
 ]);
