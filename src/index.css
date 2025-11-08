@@ -8,7 +8,7 @@
 [data-theme="dark"] {
   --color-primary: rgb(15, 69, 93);
   --color-secondary: rgb(253, 218, 179);
-  --color-accent: rgb(12, 35, 44);
+  --color-accent: rgba(0, 0, 0, 0);
 }
 
 .btn {
