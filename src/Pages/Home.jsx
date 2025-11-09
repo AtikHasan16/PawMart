@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <>
       <Container className={"sand"}>
-        <header>
+        <header className="p-3">
           <Banner></Banner>
         </header>
         <main>

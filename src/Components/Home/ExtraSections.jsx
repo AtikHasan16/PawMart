@@ -37,7 +37,7 @@ const petHeroes = [
 const ExtraSections = () => {
   return (
     // This wrapper puts both sections on a contrasting background
-    <div className=" py-16 md:py-24 sand text-secondary">
+    <div className=" py-5 md:py-14 sand text-secondary">
       <div className="container  mx-auto px-4">
         {/* === SECTION 1: Why Adopt from PawMart === */}
         <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 mb-15 bg-primary rounded-2xl p-10 ">

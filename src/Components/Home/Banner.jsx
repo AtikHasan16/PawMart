@@ -20,7 +20,7 @@ export default function Banner() {
         clickable: true,
       }}
       modules={[Autoplay, Pagination]}
-      className="mySwiper"
+      className="mySwiper "
     >
       <SwiperSlide>
         <div className="slider-1 bg-cover rounded-2xl p-4 sm:py-10 my-10 flex justify-center items-end bg-center ">
