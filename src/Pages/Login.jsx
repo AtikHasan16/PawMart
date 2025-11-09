@@ -1,24 +1,46 @@
-import React, { use } from "react";
+import React, { use, useState } from "react";
 import { Link } from "react-router";
 import { FcGoogle } from "react-icons/fc";
 import { MdOutlineEmail, MdOutlineLock } from "react-icons/md";
+import { GoEyeClosed } from "react-icons/go";
 import AuthContext from "../Context/AuthContext";
 import toast from "react-hot-toast";
+import { CgEye } from "react-icons/cg";
 
 const Login = () => {
-  const { loginWithGoogle } = use(AuthContext);
+  const { loginWithGoogle, loginWithEmail, setLoading } = use(AuthContext);
+  const [showPass, setShowPass] = useState(false);
+
+  const handleShowPass = () => {
+    setShowPass(!showPass);
+  };
+
   const handleLoginForm = (e) => {
     e.preventDefault();
 
     const email = e.target.email.value;
     const password = e.target.password.value;
     console.log(email, password);
+
+    loginWithEmail(email, password)
+      .then(() => {
+        toast.success("successfully logged in");
+      })
+      .catch((error) => {
+        toast.error(error);
+      });
   };
 
   const handleGoogleLogin = () => {
-    loginWithGoogle().then(() => {
-      toast.success("successfully logged in");
-    });
+    loginWithGoogle()
+      .then(() => {
+        toast.success("successfully logged in");
+        setLoading(false);
+      })
+      .catch((error) => {
+        toast.error(error);
+        setLoading(false);
+      });
   };
   return (
     <div className="min-h-screen flex items-center justify-center p-4 sand">
@@ -55,7 +77,18 @@ const Login = () => {
               </label>
               <label className="input input-bordered flex items-center gap-2 w-full rounded-full">
                 <MdOutlineLock className="text-xl text-secondary/70" />
-                <input type="password" name="password" placeholder="••••••••" />
+                <input
+                  type={showPass ? "text" : "password"}
+                  name="password"
+                  placeholder="••••••••"
+                />
+                <div onClick={handleShowPass} className="cursor-pointer">
+                  {showPass ? (
+                    <GoEyeClosed size={24} />
+                  ) : (
+                    <CgEye size={24} className="text-red-950"></CgEye>
+                  )}
+                </div>
               </label>
             </div>
 

@@ -7,9 +7,8 @@ import AuthContext from "../../Context/AuthContext";
 import toast from "react-hot-toast";
 import LoadingSpinner from "../LoadingSpinner";
 const Navbar = () => {
-  const { currentUser, logOutUser, loading, setLoading } = use(AuthContext);
+  const { currentUser, logOutUser } = use(AuthContext);
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
- 
 
   const links = (
     <>
