@@ -1,6 +1,7 @@
 import React from "react";
 import Banner from "../Components/Home/Banner";
 import Container from "../Components/Container";
+import Category from "../Components/Home/Category";
 
 const Home = () => {
   return (
@@ -9,6 +10,10 @@ const Home = () => {
         <header>
           <Banner></Banner>
         </header>
+        <main>
+        
+          <Category></Category>
+        </main>
       </Container>
     </>
   );
