@@ -12,7 +12,7 @@
 }
 
 .btn {
-  @apply bg-secondary rounded-full text-lg text-[#422C12] border-none;
+  @apply bg-linear-90 from-[#FEEBD5] to-[#F0C899] rounded-full text-lg text-[#422C12] border-none;
 }
 
 .active {

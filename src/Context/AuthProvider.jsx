@@ -10,8 +10,11 @@ import {
   signOut,
 } from "firebase/auth";
 const googleProvider = new GoogleAuthProvider();
+
 const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+
   // Function email login
   const loginWithEmail = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
@@ -21,12 +24,14 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
+      setLoading(false);
     });
     return () => unsubscribe();
   }, []);
 
   // Function for google login
   const loginWithGoogle = () => {
+    setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
 
@@ -35,7 +40,14 @@ const AuthProvider = ({ children }) => {
   const logOutUser = () => {
     return signOut(auth);
   };
-  const authInfo = { loginWithEmail, loginWithGoogle, currentUser, logOutUser };
+  const authInfo = {
+    loginWithEmail,
+    loginWithGoogle,
+    currentUser,
+    logOutUser,
+    loading,
+    setLoading,
+  };
   return <AuthContext value={authInfo}>{children}</AuthContext>;
 };
 
