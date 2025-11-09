@@ -8,6 +8,7 @@ import ExtraSections from "../Components/Home/ExtraSections";
 const Home = () => {
   return (
     <>
+    <title>Home</title>
       <Container className={"sand"}>
         <header className="p-3">
           <Banner></Banner>

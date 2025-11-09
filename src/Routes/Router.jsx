@@ -26,7 +26,11 @@ const router = createBrowserRouter([
         loader: () => axios("http://localhost:3000/recent-listings"),
         hydrateFallbackElement: <LoadingSpinner></LoadingSpinner>,
       },
-      { path: "/pets", element: <PetsSupply></PetsSupply> },
+      {
+        path: "/pets-supply",
+        element: <PetsSupply></PetsSupply>,
+        loader: () => axios("http://localhost:3000/all-products"),
+      },
       {
         path: "/category-filtered-product/:categoryName",
 
