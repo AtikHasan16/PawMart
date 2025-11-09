@@ -1,7 +1,7 @@
 import React from "react";
 import Banner from "../Components/Home/Banner";
 import Container from "../Components/Container";
-import Category from "../Components/Home/Category";
+import Category from "../Components/Home/Categories";
 
 const Home = () => {
   return (

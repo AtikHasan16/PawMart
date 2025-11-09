@@ -10,6 +10,7 @@ import ErrorPage from "../Error/ErrorPage";
 import MyOrders from "../Pages/MyOrders";
 import GuestRouter from "./GuestRouter";
 import PrivateRoute from "./PrivateRoute";
+import CategoryProducts from "../Pages/CategoryProducts";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,11 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Home></Home> },
       { path: "/pets", element: <PetsSupply></PetsSupply> },
+      {
+        path: "/category-filtered-product/:categoryName",
+
+        element: <CategoryProducts></CategoryProducts>,
+      },
       {
         path: "/add-products",
         element: (
