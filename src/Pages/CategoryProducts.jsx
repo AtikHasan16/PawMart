@@ -8,11 +8,9 @@ const CategoryProducts = () => {
   const { categoryName } = useParams();
   const [data, setData] = useState([]);
   useEffect(() => {
-    axios(`http://localhost:3000/category-products/${categoryName}`).then(
-      (data) => {
-        setData(data.data);
-      }
-    );
+    axios(`http://localhost:3000/all-products/${categoryName}`).then((data) => {
+      setData(data.data);
+    });
   }, [categoryName]);
 
   console.log(data);
@@ -22,7 +20,7 @@ const CategoryProducts = () => {
       <Container>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 p-4">
           {data.map((listing) => (
-            <ListingCard listing={listing}></ListingCard>
+            <ListingCard key={listing._id} listing={listing}></ListingCard>
           ))}
         </div>
       </Container>

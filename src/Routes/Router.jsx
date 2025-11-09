@@ -11,6 +11,8 @@ import MyOrders from "../Pages/MyOrders";
 import GuestRouter from "./GuestRouter";
 import PrivateRoute from "./PrivateRoute";
 import CategoryProducts from "../Pages/CategoryProducts";
+import axios from "axios";
+import LoadingSpinner from "../Components/LoadingSpinner";
 
 const router = createBrowserRouter([
   {
@@ -18,7 +20,12 @@ const router = createBrowserRouter([
     element: <MainLayout></MainLayout>,
     errorElement: <ErrorPage></ErrorPage>,
     children: [
-      { index: true, element: <Home></Home> },
+      {
+        index: true,
+        element: <Home></Home>,
+        loader: () => axios("http://localhost:3000/recent-listings"),
+        hydrateFallbackElement: <LoadingSpinner></LoadingSpinner>,
+      },
       { path: "/pets", element: <PetsSupply></PetsSupply> },
       {
         path: "/category-filtered-product/:categoryName",
