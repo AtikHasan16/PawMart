@@ -37,35 +37,32 @@ const petHeroes = [
 const ExtraSections = () => {
   return (
     // This wrapper puts both sections on a contrasting background
-    <div className="bg-accent py-16 md:py-24 sand text-secondary/90">
-      <div className="container max-w-7xl mx-auto px-4">
+    <div className=" py-16 md:py-24 sand text-secondary">
+      <div className="container  mx-auto px-4">
         {/* === SECTION 1: Why Adopt from PawMart === */}
-        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 mb-20">
-          <div className="flex-1 text-center md:text-left">
-            <h2 className="text-3xl md:text-4xl font-bold outfit text-secondary mb-6">
+        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 mb-15 bg-primary rounded-2xl p-10 ">
+          <div className="flex-1 text-center md:text-left ">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-6 bg-primary rounded-full w-fit mx-auto py-4 px-6 text-secondary">
               Why Adopt from PawMart?
             </h2>
-            <p className="text-lg text-secondary/80 mb-4">
+            <p className="text-lg text-secondary/80 mb-4 w-8/12 mx-auto">
               When you adopt, you're not just getting a pet—you're saving a
               life. Millions of wonderful, deserving animals are waiting in
-              shelters for a second chance.
-            </p>
-            <p className="text-lg text-secondary/80">
-              Choosing adoption over buying helps fight pet overpopulation,
-              supports your local community, and allows a grateful animal to
-              find its forever home. With PawMart, you're connecting to that
-              mission.
+              shelters for a second chance. Choosing adoption over buying helps
+              fight pet overpopulation, supports your local community, and
+              allows a grateful animal to find its forever home. With PawMart,
+              you're connecting to that mission.
             </p>
           </div>
           <div className="shrink-0">
             {/* A simple visual icon */}
-            <FaHeart className="text-9xl text-secondary/30" />
+            <FaHeart className="text-9xl text-secondary" />
           </div>
         </div>
 
         {/* === SECTION 2: Meet Our Pet Heroes === */}
         <div>
-          <h2 className="text-3xl md:text-4xl font-bold text-center outfit text-secondary mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 bg-primary rounded-full w-fit mx-auto py-4 px-6 text-secondary">
             Meet Our Pet Heroes
           </h2>
 
