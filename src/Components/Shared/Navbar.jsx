@@ -5,9 +5,11 @@ import { Link, NavLink } from "react-router";
 // import logo from "../../assets/LOGO.png";
 import AuthContext from "../../Context/AuthContext";
 import toast from "react-hot-toast";
+import LoadingSpinner from "../LoadingSpinner";
 const Navbar = () => {
   const { currentUser, logOutUser, loading, setLoading } = use(AuthContext);
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+ 
 
   const links = (
     <>

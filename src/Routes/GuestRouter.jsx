@@ -4,6 +4,7 @@ import { Navigate } from "react-router";
 
 const GuestRouter = ({ children }) => {
   const { currentUser } = use(AuthContext);
+
   if (!currentUser) {
     return children;
   }

@@ -9,6 +9,7 @@ import MyListing from "../Pages/MyListing";
 import ErrorPage from "../Error/ErrorPage";
 import MyOrders from "../Pages/MyOrders";
 import GuestRouter from "./GuestRouter";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -18,9 +19,30 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Home></Home> },
       { path: "/pets", element: <PetsSupply></PetsSupply> },
-      { path: "/add-products", element: <AddListing></AddListing> },
-      { path: "/my-products", element: <MyListing></MyListing> },
-      { path: "/my-orders", element: <MyOrders></MyOrders> },
+      {
+        path: "/add-products",
+        element: (
+          <PrivateRoute>
+            <AddListing></AddListing>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/my-products",
+        element: (
+          <PrivateRoute>
+            <MyListing></MyListing>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/my-orders",
+        element: (
+          <PrivateRoute>
+            <MyOrders></MyOrders>
+          </PrivateRoute>
+        ),
+      },
       {
         path: "/login",
         element: (
