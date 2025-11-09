@@ -85,7 +85,7 @@ const Navbar = () => {
               </div>
               <ul
                 tabIndex="-1"
-                className="menu menu-sm dropdown-content bg-primary rounded-box z-1 mt-3 w-52 p-2 shadow"
+                className="menu menu-sm dropdown-content bg-primary rounded-box  mt-3 w-52 p-2 shadow"
               >
                 {links}
               </ul>
@@ -126,7 +126,7 @@ const Navbar = () => {
                     </div>
                     <ul
                       tabIndex="-1"
-                      className="menu menu-lg dropdown-content bg-primary rounded-box z-1 mt-3 w-52 p-2 shadow"
+                      className="menu menu-lg dropdown-content bg-primary rounded-box  mt-3 w-52 p-2 shadow"
                     >
                       <li>
                         <p className="justify-between">
