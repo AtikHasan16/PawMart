@@ -13,7 +13,7 @@ const ListingCard = ({ listing }) => {
     category === "Pets" || Price === 0 ? "Free for Adoption" : `৳${Price}`;
 
   return (
-    <div className="card card-compact h-full bg-primary text-secondary shadow-xl transition-all duration-300 hover:scale-105 sand">
+    <div className="card card-compact rounded-2xl h-full bg-primary text-secondary transition-all duration-300 hover:scale-105 hover:shadow-xl shadow-gray-800 sand">
       <figure>
         <img
           src={image}
@@ -50,7 +50,7 @@ const ListingCard = ({ listing }) => {
         {/* "See Details" Button */}
         <div className="card-actions justify-end mt-4">
           <Link
-            to={`/listing/${_id}`} // Navigates to the dynamic details page
+            to={`/product-details/${_id}`} // Navigates to the dynamic details page
             className="btn outfit" // This will use your custom .btn style
           >
             See Details

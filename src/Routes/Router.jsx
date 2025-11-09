@@ -13,6 +13,7 @@ import PrivateRoute from "./PrivateRoute";
 import CategoryProducts from "../Pages/CategoryProducts";
 import axios from "axios";
 import LoadingSpinner from "../Components/LoadingSpinner";
+import ProductDetails from "../Pages/ProductDetails";
 
 const router = createBrowserRouter([
   {
@@ -30,11 +31,16 @@ const router = createBrowserRouter([
         path: "/pets-supply",
         element: <PetsSupply></PetsSupply>,
         loader: () => axios("http://localhost:3000/all-products"),
+        hydrateFallbackElement: <LoadingSpinner></LoadingSpinner>,
       },
       {
         path: "/category-filtered-product/:categoryName",
-
         element: <CategoryProducts></CategoryProducts>,
+      },
+      {
+        path: "/product-details/:id",
+        element: <ProductDetails></ProductDetails>,
+        loader: ()=> axios()
       },
       {
         path: "/add-products",
