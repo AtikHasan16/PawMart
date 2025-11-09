@@ -6,8 +6,11 @@ import { Link, NavLink } from "react-router";
 import AuthContext from "../../Context/AuthContext";
 import toast from "react-hot-toast";
 import LoadingSpinner from "../LoadingSpinner";
+import { ClockLoader } from "react-spinners";
 const Navbar = () => {
-  const { currentUser, logOutUser } = use(AuthContext);
+  const { currentUser, logOutUser, loading } = use(AuthContext);
+  console.log(loading);
+
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
   const links = (
@@ -99,56 +102,64 @@ const Navbar = () => {
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">{links}</ul>
           </div>
-          {currentUser ? (
-            <div className="navbar-end gap-2">
-              <button className="btn" onClick={handleLogout}>
-                Logout
-              </button>
-
-              <div className="dropdown dropdown-end text-secondary">
-                <div tabIndex={0} role="button" className="avatar">
-                  <div className="ring-primary ring-offset-secondary w-12 rounded-full ring-3 ring-offset-2">
-                    <img
-                      alt="Tailwind CSS Navbar component"
-                      src={currentUser.photoURL}
-                      referrerPolicy="no-referrer"
-                    />
-                  </div>
-                </div>
-                <ul
-                  tabIndex="-1"
-                  className="menu menu-lg dropdown-content bg-primary rounded-box z-1 mt-3 w-52 p-2 shadow"
-                >
-                  <li>
-                    <p className="justify-between">
-                      Theme
-                      <label>
-                        <label className="toggle text-secondary">
-                          <input
-                            onChange={(e) => handleTheme(e.target.checked)}
-                            type="checkbox"
-                            className="theme-controller"
-                            defaultChecked={
-                              localStorage.getItem("theme") === "dark"
-                            }
-                          />
-                          <CgSun className="text-primary"></CgSun>
-                          <CgMoon className="text-primary"></CgMoon>
-                        </label>
-                      </label>
-                    </p>
-                  </li>
-                </ul>
-              </div>
+          {loading ? (
+            <div className="navbar-end text-amber-100">
+              <ClockLoader color="#FDD6AA"></ClockLoader>
             </div>
           ) : (
-            <div className="navbar-end gap-2">
-              <Link to={"/login"} className="btn ">
-                Login
-              </Link>
-              <Link to={"/register"} className="btn ">
-                Register
-              </Link>
+            <div className="navbar-end">
+              {currentUser ? (
+                <div className="navbar-end gap-2">
+                  <button className="btn" onClick={handleLogout}>
+                    Logout
+                  </button>
+
+                  <div className="dropdown dropdown-end text-secondary">
+                    <div tabIndex={0} role="button" className="avatar">
+                      <div className="ring-primary ring-offset-secondary w-12 rounded-full ring-3 ring-offset-2">
+                        <img
+                          alt="Tailwind CSS Navbar component"
+                          src={currentUser.photoURL}
+                          referrerPolicy="no-referrer"
+                        />
+                      </div>
+                    </div>
+                    <ul
+                      tabIndex="-1"
+                      className="menu menu-lg dropdown-content bg-primary rounded-box z-1 mt-3 w-52 p-2 shadow"
+                    >
+                      <li>
+                        <p className="justify-between">
+                          Theme
+                          <label>
+                            <label className="toggle text-secondary">
+                              <input
+                                onChange={(e) => handleTheme(e.target.checked)}
+                                type="checkbox"
+                                className="theme-controller"
+                                defaultChecked={
+                                  localStorage.getItem("theme") === "dark"
+                                }
+                              />
+                              <CgSun className="text-primary"></CgSun>
+                              <CgMoon className="text-primary"></CgMoon>
+                            </label>
+                          </label>
+                        </p>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              ) : (
+                <div className="navbar-end gap-2">
+                  <Link to={"/login"} className="btn ">
+                    Login
+                  </Link>
+                  <Link to={"/register"} className="btn ">
+                    Register
+                  </Link>
+                </div>
+              )}
             </div>
           )}
         </div>

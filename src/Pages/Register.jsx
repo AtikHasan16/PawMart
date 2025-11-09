@@ -11,6 +11,7 @@ const Register = () => {
   const { loginWithGoogle, registerWithEmail, setLoading, updateCurrentUser } =
     useContext(AuthContext);
   const [showPass, setShowPass] = useState(false);
+  const [invalid, setInvalid] = useState("");
   const handleShowPass = () => {
     setShowPass(!showPass);
   };
@@ -22,18 +23,26 @@ const Register = () => {
     const photoURL = e.target.image.value;
     console.log(name, email, password, photoURL);
 
+    if (password.length < 6) {
+      return setInvalid("Password must be at least 6 character");
+    } else if (!/[A-Z]/.test(password)) {
+      return setInvalid("Password must contain at least one uppercase letter.");
+    } else if (!/[a-z]/.test(password)) {
+      return setInvalid("Password must contain at least one lowercase letter.");
+    }
     registerWithEmail(email, password)
       .then((res) => {
         console.log(res);
         toast.success("Registration Successful");
-        setLoading(false);
 
         updateCurrentUser(name, photoURL)
           .then(() => {
             toast.success("successfully updated user info");
+            setLoading(false);
           })
           .catch((error) => {
             toast.error(error);
+            setLoading(false);
           });
       })
       .catch((error) => {
@@ -124,7 +133,8 @@ const Register = () => {
             </div>
 
             {/* Forget Text */}
-            <div className="text-right">
+            <div className="text-right flex">
+              <p className="text-sm  text-red-400 text-left">{invalid}</p>
               <a
                 href="#"
                 className="text-sm hover:underline text-secondary/70 hover:text-secondary"
@@ -142,9 +152,9 @@ const Register = () => {
           </form>
 
           <p className="text-center mt-4 text-white">
-            Don't have an account?{" "}
+            Already have an account?{" "}
             <Link
-              to="/register"
+              to="/login"
               className="font-bold hover:underline text-secondary"
             >
               Create one
