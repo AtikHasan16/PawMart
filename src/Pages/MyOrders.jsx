@@ -53,7 +53,7 @@ const MyOrders = () => {
       });
     });
   };
-
+  const handleUpdateData = () => {};
   return (
     <div>
       <title>My-Orders</title>
@@ -94,7 +94,7 @@ const MyOrders = () => {
                         <button
                           className="btn btn-sm btn-circle btn-info"
                           onClick={() => {
-                            handleEditData();
+                            handleUpdateData();
                           }}
                         >
                           <FaEdit />
