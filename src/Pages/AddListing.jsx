@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 
 // Import your AuthContext to get the logged-in user
 import AuthContext from "../Context/AuthContext"; // 1. Adjust this path
+import { Typewriter } from "react-simple-typewriter";
 
 const AddListing = () => {
   const { currentUser } = useContext(AuthContext); // Get the logged-in user
@@ -45,7 +46,7 @@ const AddListing = () => {
     <div className="min-h-screen p-4 md:p-12  text-secondary sand flex items-center">
       <div className="container max-w-3xl mx-auto bg-primary rounded-2xl shadow-xl p-6 md:p-10">
         <h1 className="text-3xl md:text-4xl font-bold  text-secondary mb-8 md:mb-12 text-center">
-          Add New Listing
+          <Typewriter words={[" Add New Listing "]} />
         </h1>
 
         <form onSubmit={handleAddListing} className="space-y-6">

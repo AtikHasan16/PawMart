@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router";
 import { FaPaw, FaBone, FaTag, FaFirstAid } from "react-icons/fa";
+import { Typewriter } from "react-simple-typewriter";
 
 // Array to hold the category data
 const categories = [
@@ -40,7 +41,7 @@ const Category = () => {
       <div className="container">
         {/* SECTION TITLE */}
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 bg-primary rounded-full w-fit mx-auto py-4 px-6 text-secondary">
-          Shop by Category
+          <Typewriter words={["Shop by Category"]}></Typewriter>
         </h2>
 
         {/* CATEGORY GRID */}

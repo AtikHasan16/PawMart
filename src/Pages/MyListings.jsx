@@ -7,6 +7,7 @@ import Container from "../Components/Container";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import { Link } from "react-router";
+import { Typewriter } from "react-simple-typewriter";
 
 const MyListings = () => {
   const { currentUser } = use(AuthContext);
@@ -68,7 +69,7 @@ const MyListings = () => {
         <div className="min-h-screen p-4 md:p-12  text-secondary sand">
           <div>
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 bg-primary rounded-full w-fit mx-auto py-4 px-6 text-secondary">
-              My Listings
+              <Typewriter words={["My Listings "]} />
             </h2>
 
             {/* Responsive Table */}
