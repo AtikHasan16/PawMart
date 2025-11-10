@@ -5,7 +5,7 @@ import PetsSupply from "../Pages/PetsSupply";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import AddListing from "../Pages/AddListing";
-import MyListing from "../Pages/MyListing";
+import MyListing from "../Pages/MyListings";
 import ErrorPage from "../Error/ErrorPage";
 import MyOrders from "../Pages/MyOrders";
 import GuestRouter from "./GuestRouter";
@@ -14,6 +14,7 @@ import CategoryProducts from "../Pages/CategoryProducts";
 import axios from "axios";
 import LoadingSpinner from "../Components/LoadingSpinner";
 import ProductDetails from "../Pages/ProductDetails";
+import UpdateListing from "../Pages/UpdateListing";
 
 const router = createBrowserRouter([
   {
@@ -59,6 +60,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <MyListing></MyListing>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/update-listing/:id",
+        element: (
+          <PrivateRoute>
+            <UpdateListing></UpdateListing>
           </PrivateRoute>
         ),
       },

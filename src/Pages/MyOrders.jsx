@@ -27,33 +27,6 @@ const MyOrders = () => {
     return <LoadingSpinner></LoadingSpinner>;
   }
 
-  const handleDeleteData = (id) => {
-    axios.delete(`http://localhost:3000/orderData/${id}`).then((data) => {
-      Swal.fire({
-        title: "Are you sure?",
-        text: "You won't be able to revert this!",
-        icon: "warning",
-        theme: "dark",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!",
-      }).then((result) => {
-        if (result.isConfirmed) {
-          Swal.fire({
-            title: "Deleted!",
-            theme: "dark",
-            text: "Your file has been deleted.",
-            icon: "success",
-          });
-
-          console.log(data.data);
-          setOrderData(orderData.filter((data) => data._id !== id));
-        }
-      });
-    });
-  };
-  const handleUpdateData = () => {};
   return (
     <div>
       <title>My-Orders</title>
@@ -71,18 +44,19 @@ const MyOrders = () => {
                 <thead className="text-secondary/80  text-sm">
                   <tr className="border-b border-secondary">
                     <th className="">Product</th>
+                    <th>Buyer Name</th>
                     <th>Price</th>
                     <th>Quantity</th>
                     <th>Pickup Date</th>
                     <th>Address</th>
                     <th>Phone</th>
-                    <th className="text-center">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
                   {orderData.map((order) => (
                     <tr key={order._id} className="hover:bg-gray-800/50">
                       <td>{order.productName}</td>
+                      <td>{order.buyerName}</td>
                       <td>৳{order.price}</td>
                       <td>{order.quantity}</td>
                       <td>{new Date(order.date).toLocaleDateString()}</td>
@@ -90,24 +64,6 @@ const MyOrders = () => {
                         {order.address}
                       </td>
                       <td>{order.phone}</td>
-                      <td className="flex items-center justify-center gap-2">
-                        <button
-                          className="btn btn-sm btn-circle btn-info"
-                          onClick={() => {
-                            handleUpdateData();
-                          }}
-                        >
-                          <FaEdit />
-                        </button>
-                        <button
-                          className="btn btn-sm btn-circle btn-error"
-                          onClick={() => {
-                            handleDeleteData(order._id);
-                          }}
-                        >
-                          <FaTrash />
-                        </button>
-                      </td>
                     </tr>
                   ))}
                 </tbody>

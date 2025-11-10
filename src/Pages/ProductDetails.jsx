@@ -76,7 +76,7 @@ const ProductDetails = () => {
         console.log(date.data);
         if (date.data.insertedId) {
           toast.success("Order Request submitted");
-        //   e.target.reset();
+          //   e.target.reset();
         }
       })
       .catch((err) => {
@@ -324,10 +324,6 @@ const ProductDetails = () => {
                     <button type="submit" className="btn outfit">
                       Confirm {isPet ? "Adoption" : "Order"}
                     </button>
-
-                    {/* This form's only job is to provide a "Cancel" button.
-          It's the standard DaisyUI way to close a dialog.
-        */}
 
                     <button
                       type="button"
