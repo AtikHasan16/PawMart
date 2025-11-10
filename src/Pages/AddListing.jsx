@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router"; // To redirect after submission
 
 // Import your AuthContext to get the logged-in user
 import AuthContext from "../Context/AuthContext"; // 1. Adjust this path
@@ -29,14 +28,12 @@ const AddListing = () => {
       email: currentUser?.email, // Ensure email is from the logged-in user
       addedAt: new Date(), // Timestamp for when the listing was added
     };
-
-    // 2. Send data to your server
-    // Make sure your backend has an /add-listing route setup
+    console.log(newListing);
     axios
-      .post("http://localhost:5000/add-listing", newListing)
-      .then((res) => {
-        console.log(res);
-        toast.success("Listing added successfully!");
+      .post("http://localhost:3000/all-products", newListing)
+      .then((data) => {
+        console.log(data.data);
+        toast.success("Item added successfully!");
         form.reset(); // Clear the form
       })
       .catch((error) => {
@@ -53,7 +50,10 @@ const AddListing = () => {
 
         <form onSubmit={handleAddListing} className="space-y-6">
           {/* Product / Pet Name */}
-          <div className="flex justify-between flex-col md:flex-row">
+          <div
+            className="flex justify-between gap-6
+           flex-col md:flex-row"
+          >
             <div className="form-control  flex-1/2">
               <label className="label">
                 <span className="label-text my-2 text-secondary">
@@ -64,7 +64,7 @@ const AddListing = () => {
                 type="text"
                 name="name"
                 placeholder="e.g., Golden Retriever Puppy, Royal Canin Dog Food"
-                className="input input-bordered bg-primary text-secondary"
+                className="input  w-full bg-gray-900  text-secondary"
                 required
               />
             </div>
@@ -76,7 +76,7 @@ const AddListing = () => {
               </label>
               <select
                 name="category"
-                className="select select-bordered bg-primary text-secondary"
+                className="select w-full bg-gray-900 text-secondary"
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
                 required
@@ -92,7 +92,10 @@ const AddListing = () => {
             </div>
           </div>
           {/* Price (Conditional) */}
-          <div className="flex justify-between flex-col md:flex-row">
+          <div
+            className="flex justify-between gap-6
+           flex-col md:flex-row"
+          >
             <div className="form-control flex-1/2">
               <label className="label">
                 <span className="label-text my-2 text-secondary">
@@ -107,8 +110,8 @@ const AddListing = () => {
                     ? "Price is 0 for Pets"
                     : "Enter price"
                 }
-                className="input input-bordered bg-primary text-secondary"
-                value={selectedCategory === "Pets" ? 0 : undefined} // Controlled for Pets, uncontrolled otherwise
+                className="input  w-full bg-gray-900  text-secondary"
+                defaultValue={selectedCategory === "Pets" ? 1 : 0} // Controlled for Pets, uncontrolled otherwise
                 readOnly={selectedCategory === "Pets"}
                 min={0}
                 step="0.01"
@@ -127,14 +130,17 @@ const AddListing = () => {
                 type="text"
                 name="location"
                 placeholder="e.g., Dhaka, Chattogram"
-                className="input input-bordered bg-primary text-secondary"
+                className="input  w-full bg-gray-900  text-secondary"
                 required
               />
             </div>
           </div>
 
           {/* Image URL */}
-          <div className="flex justify-between flex-col md:flex-row">
+          <div
+            className="flex justify-between gap-6
+           flex-col md:flex-row"
+          >
             <div className="form-control  flex-1/2">
               <label className="label">
                 <span className="label-text my-2 text-secondary">
@@ -145,7 +151,7 @@ const AddListing = () => {
                 type="url"
                 name="image"
                 placeholder="e.g., https://example.com/image.jpg"
-                className="input input-bordered bg-primary text-secondary"
+                className="input  w-full bg-gray-900 text-secondary"
                 required
               />
             </div>
@@ -160,14 +166,17 @@ const AddListing = () => {
               <input
                 type="date"
                 name="date"
-                className="input input-bordered bg-primary text-secondary"
+                className="input  w-full bg-gray-900 text-secondary"
                 required
               />
             </div>
           </div>
 
           {/* Owner's Email (Read-only) */}
-          <div className="flex justify-between flex-col md:flex-row">
+          <div
+            className="flex justify-between gap-6
+           flex-col md:flex-row"
+          >
             <div className="form-control flex-1/2">
               <label className="label">
                 <span className="label-text my-2 text-secondary">
@@ -179,7 +188,7 @@ const AddListing = () => {
                 name="email"
                 value={currentUser?.email || ""}
                 readOnly
-                className="input input-bordered bg-primary text-secondary cursor-not-allowed"
+                className="input  w-full bg-gray-900  text-secondary cursor-not-allowed"
                 required
               />
             </div>
@@ -193,7 +202,7 @@ const AddListing = () => {
               <textarea
                 name="description"
                 placeholder="Tell us about the pet or product..."
-                className="textarea textarea-bordered h-24 bg-primary text-secondary"
+                className="textarea w-full bg-gray-900 text-secondary"
                 required
               ></textarea>
             </div>
