@@ -11,6 +11,8 @@ const AddListing = () => {
 
   // State to manage the selected category for dynamic price logic
   const [selectedCategory, setSelectedCategory] = useState("");
+  const [price, setPrice] = useState("");
+  console.log(selectedCategory);
 
   const handleAddListing = async (e) => {
     e.preventDefault();
@@ -42,6 +44,15 @@ const AddListing = () => {
       });
   };
 
+  const handleCategoryChange = (e) => {
+    const category = e.target.value;
+    setSelectedCategory(category);
+    if (category === "Pets") {
+      setPrice("0");
+    } else {
+      setPrice("");
+    }
+  };
   return (
     <div className="min-h-screen p-4 md:p-12  text-secondary sand flex items-center">
       <div className="container max-w-3xl mx-auto bg-primary rounded-2xl shadow-xl p-6 md:p-10">
@@ -79,7 +90,7 @@ const AddListing = () => {
                 name="category"
                 className="select w-full bg-gray-900 text-secondary"
                 value={selectedCategory}
-                onChange={(e) => setSelectedCategory(e.target.value)}
+                onChange={handleCategoryChange}
                 required
               >
                 <option value="" disabled>
@@ -112,8 +123,9 @@ const AddListing = () => {
                     : "Enter price"
                 }
                 className="input  w-full bg-gray-900  text-secondary"
-                defaultValue={selectedCategory === "Pets" ? 1 : 0} // Controlled for Pets, uncontrolled otherwise
                 readOnly={selectedCategory === "Pets"}
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
                 min={0}
                 step="0.01"
                 required={selectedCategory !== "Pets"} // Only required if not a pet

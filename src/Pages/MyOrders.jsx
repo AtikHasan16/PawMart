@@ -6,6 +6,8 @@ import LoadingSpinner from "../Components/LoadingSpinner";
 import Container from "../Components/Container";
 import Swal from "sweetalert2";
 import { Typewriter } from "react-simple-typewriter";
+import { jsPDF } from "jspdf";
+import { autoTable } from "jspdf-autotable";
 
 const MyOrders = () => {
   const { currentUser } = use(AuthContext);
@@ -27,6 +29,39 @@ const MyOrders = () => {
   if (loading || !orderData) {
     return <LoadingSpinner></LoadingSpinner>;
   }
+  console.log(orderData);
+
+  const generatePdf = () => {
+    const doc = new jsPDF();
+    const head = [
+      [
+        "Product",
+        "Buyer Name",
+        "Price",
+        "Quantity",
+        "Pickup Date",
+        "Address",
+        "Phone",
+      ],
+    ];
+    const body = orderData.map((data) => [
+      data.productName,
+      data.buyerName,
+      data.price,
+      data.quantity,
+      data.date,
+      data.address,
+      data.phone,
+    ]);
+
+    autoTable(doc, {
+      head: head,
+      body: body,
+      startY: 20,
+      theme: "grid",
+    });
+    doc.save("My-Orders.pdf");
+  };
 
   return (
     <div>
@@ -70,6 +105,15 @@ const MyOrders = () => {
                 </tbody>
               </table>
             </div>
+          </div>
+          <div className=" text-center">
+            <button
+              className="btn my-6 "
+              type="button"
+              onClick={() => generatePdf()}
+            >
+              Download PDF
+            </button>
           </div>
         </div>
       </Container>
