@@ -15,7 +15,7 @@ const CategoryProducts = () => {
     });
   }, [categoryName]);
 
-  console.log(data);
+  //console.log(data);
 
   return (
     <div className="my-10 min-h-[calc(100dvh-400px)] sand">

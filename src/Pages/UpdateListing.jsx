@@ -9,7 +9,7 @@ const UpdateListing = () => {
   const { currentUser } = useContext(AuthContext);
   const { id } = useParams();
   const { state } = useLocation();
-  console.log(state);
+  //console.log(state);
 
   const [selectedCategory, setSelectedCategory] = useState("");
   const [price, setPrice] = useState("");
@@ -33,7 +33,7 @@ const UpdateListing = () => {
       name,
       email,
     };
-    console.log(updateListingData);
+    //console.log(updateListingData);
 
     axios
       .put(

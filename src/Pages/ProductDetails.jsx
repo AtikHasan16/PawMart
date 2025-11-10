@@ -68,19 +68,19 @@ const ProductDetails = () => {
       additionalNotes: additionalNotes,
     };
 
-    console.log(orderData);
+    //console.log(orderData);
 
     axios
       .post("https://paw-mart-server.vercel.app/orderData", orderData)
       .then((date) => {
-        console.log(date.data);
+        //console.log(date.data);
         if (date.data.insertedId) {
           toast.success("Order Request submitted");
           e.target.reset();
         }
       })
       .catch((err) => {
-        console.log(err);
+        //console.log(err);
         toast.error(err.code);
       });
   };

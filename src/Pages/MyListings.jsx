@@ -19,7 +19,7 @@ const MyListings = () => {
     )
       .then((data) => {
         setListingsData(data.data);
-        console.log(data.data);
+        //console.log(data.data);
       })
       .catch((error) => {
         console.log(error);

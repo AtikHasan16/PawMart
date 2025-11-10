@@ -29,7 +29,7 @@ const MyOrders = () => {
   if (loading || !orderData) {
     return <LoadingSpinner></LoadingSpinner>;
   }
-  console.log(orderData);
+  //console.log(orderData);
 
   const generatePdf = () => {
     const doc = new jsPDF();

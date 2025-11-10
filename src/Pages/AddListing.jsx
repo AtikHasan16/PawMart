@@ -12,7 +12,7 @@ const AddListing = () => {
   // State to manage the selected category for dynamic price logic
   const [selectedCategory, setSelectedCategory] = useState("");
   const [price, setPrice] = useState("");
-  console.log(selectedCategory);
+  //console.log(selectedCategory);
 
   const handleAddListing = async (e) => {
     e.preventDefault();
@@ -31,7 +31,7 @@ const AddListing = () => {
       email: currentUser?.email, // Ensure email is from the logged-in user
       addedAt: new Date(), // Timestamp for when the listing was added
     };
-    console.log(newListing);
+    //console.log(newListing);
     axios
       .post("https://paw-mart-server.vercel.app/all-products", newListing)
       .then((data) => {

@@ -9,7 +9,7 @@ import LoadingSpinner from "../LoadingSpinner";
 import { ClockLoader } from "react-spinners";
 const Navbar = () => {
   const { currentUser, logOutUser, loading } = use(AuthContext);
-  console.log(loading);
+  //console.log(loading);
 
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 

@@ -4,7 +4,7 @@ import ListingCard from "../Shared/LstingCard";
 
 const RecentProducts = () => {
   const { data } = useLoaderData();
-  console.log(data);
+  //console.log(data);
 
   return (
     <div className="my-12">

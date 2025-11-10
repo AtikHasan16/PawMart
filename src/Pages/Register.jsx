@@ -21,7 +21,7 @@ const Register = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
     const photoURL = e.target.image.value;
-    console.log(name, email, password, photoURL);
+    //console.log(name, email, password, photoURL);
 
     if (password.length < 6) {
       return setInvalid("Password must be at least 6 character");
@@ -32,7 +32,7 @@ const Register = () => {
     }
     registerWithEmail(email, password)
       .then((res) => {
-        console.log(res);
+        //console.log(res);
         toast.success("Registration Successful");
 
         updateCurrentUser(name, photoURL)
