@@ -76,7 +76,7 @@ const ProductDetails = () => {
         console.log(date.data);
         if (date.data.insertedId) {
           toast.success("Order Request submitted");
-          //   e.target.reset();
+          e.target.reset();
         }
       })
       .catch((err) => {

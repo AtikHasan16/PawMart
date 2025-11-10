@@ -18,13 +18,22 @@ const CategoryProducts = () => {
   console.log(data);
 
   return (
-    <div className="my-10">
+    <div className="my-10 min-h-[calc(100dvh-400px)] sand">
+      <title>Category-Products</title>
       <Container>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 p-4">
-          {data.map((listing) => (
-            <ListingCard key={listing._id} listing={listing}></ListingCard>
-          ))}
-        </div>
+        {data.length === 0 ? (
+          <div className="my-20 flex content-center justify-center">
+            <h1 className="text-center text-4xl text-primary/80 font-bold">
+              No Items Found
+            </h1>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 p-4">
+            {data.map((listing) => (
+              <ListingCard key={listing._id} listing={listing}></ListingCard>
+            ))}
+          </div>
+        )}
       </Container>
     </div>
   );

@@ -106,15 +106,23 @@ const MyOrders = () => {
               </table>
             </div>
           </div>
-          <div className=" text-center">
-            <button
-              className="btn my-6 "
-              type="button"
-              onClick={() => generatePdf()}
-            >
-              Download PDF
-            </button>
-          </div>
+          {orderData.length === 0 ? (
+            <div className="my-40">
+              <h1 className="text-center text-4xl text-primary/80 font-bold">
+                No Items Found
+              </h1>
+            </div>
+          ) : (
+            <div className=" text-center">
+              <button
+                className="btn my-6 "
+                type="button"
+                onClick={() => generatePdf()}
+              >
+                Download PDF
+              </button>
+            </div>
+          )}
         </div>
       </Container>
     </div>

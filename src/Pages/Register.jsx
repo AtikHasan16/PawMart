@@ -62,7 +62,7 @@ const Register = () => {
   };
   return (
     <div className="min-h-screen flex items-center justify-center p-4 sand">
-      <title>Login</title>
+      <title>Register</title>
       <div className="card w-full max-w-md bg-primary shadow-xl rounded-4xl">
         <div className="card-body">
           {/* Title */}

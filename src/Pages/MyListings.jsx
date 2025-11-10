@@ -110,6 +110,7 @@ const MyListings = () => {
                         <div className="flex items-center justify-center gap-2">
                           <Link
                             to={`/update-listing/${product._id}`}
+                            state={product}
                             className="btn btn-sm btn-circle btn-info"
                           >
                             <FaEdit />
@@ -129,6 +130,13 @@ const MyListings = () => {
                 </tbody>
               </table>
             </div>
+            {listingsData.length === 0 && (
+              <div className="my-40">
+                <h1 className="text-center text-4xl text-primary/80 font-bold">
+                  No Items Found
+                </h1>
+              </div>
+            )}
           </div>
         </div>
       </Container>
