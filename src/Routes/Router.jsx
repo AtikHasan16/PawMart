@@ -25,13 +25,14 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home></Home>,
-        loader: () => axios("http://localhost:3000/recent-listings"),
+        loader: () =>
+          axios("https://paw-mart-server.vercel.app/recent-listings"),
         hydrateFallbackElement: <LoadingSpinner></LoadingSpinner>,
       },
       {
         path: "/pets-supply",
         element: <PetsSupply></PetsSupply>,
-        loader: () => axios("http://localhost:3000/all-products"),
+        loader: () => axios("https://paw-mart-server.vercel.app/all-products"),
         hydrateFallbackElement: <LoadingSpinner></LoadingSpinner>,
       },
       {

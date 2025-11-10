@@ -8,11 +8,11 @@ const CategoryProducts = () => {
   const { categoryName } = useParams();
   const [data, setData] = useState([]);
   useEffect(() => {
-    axios(`http://localhost:3000/all-products/category/${categoryName}`).then(
-      (data) => {
-        setData(data.data);
-      }
-    );
+    axios(
+      `https://paw-mart-server.vercel.app/all-products/category/${categoryName}`
+    ).then((data) => {
+      setData(data.data);
+    });
   }, [categoryName]);
 
   console.log(data);

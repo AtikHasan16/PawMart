@@ -19,7 +19,7 @@ const ProductDetails = () => {
 
   useEffect(() => {
     setLoading(true);
-    axios(`http://localhost:3000/all-products/${id}`)
+    axios(`https://paw-mart-server.vercel.app/all-products/${id}`)
       .then((data) => setPageDetails(data.data))
       .catch((error) => {
         console.log(error);
@@ -71,7 +71,7 @@ const ProductDetails = () => {
     console.log(orderData);
 
     axios
-      .post("http://localhost:3000/orderData", orderData)
+      .post("https://paw-mart-server.vercel.app/orderData", orderData)
       .then((date) => {
         console.log(date.data);
         if (date.data.insertedId) {

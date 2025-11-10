@@ -14,7 +14,7 @@ const MyOrders = () => {
   const [orderData, setOrderData] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    axios(`http://localhost:3000/orderData/${currentUser.email}`)
+    axios(`https://paw-mart-server.vercel.app/orderData/${currentUser.email}`)
       .then((data) => {
         setOrderData(data.data);
       })

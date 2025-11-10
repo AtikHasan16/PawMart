@@ -33,7 +33,7 @@ const AddListing = () => {
     };
     console.log(newListing);
     axios
-      .post("http://localhost:3000/all-products", newListing)
+      .post("https://paw-mart-server.vercel.app/all-products", newListing)
       .then((data) => {
         console.log(data.data);
         toast.success("Item added successfully!");

@@ -36,7 +36,10 @@ const UpdateListing = () => {
     console.log(updateListingData);
 
     axios
-      .put(`http://localhost:3000/all-products/${id}`, updateListingData)
+      .put(
+        `https://paw-mart-server.vercel.app/all-products/${id}`,
+        updateListingData
+      )
       .then((data) => {
         console.log(data.data);
         toast.success("Listing updated successfully");
@@ -58,7 +61,7 @@ const UpdateListing = () => {
   };
   return (
     <div className="min-h-screen p-4 md:p-12  text-secondary sand flex items-center">
-        <title>Update-Listing</title>
+      <title>Update-Listing</title>
       <div className="container max-w-3xl mx-auto bg-primary rounded-2xl shadow-xl p-6 md:p-10">
         <h1 className="text-3xl md:text-4xl font-bold  text-secondary mb-8 md:mb-12 text-center">
           <Typewriter words={[" Update your Listing "]} />

@@ -14,7 +14,9 @@ const MyListings = () => {
   const [listingsData, setListingsData] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    axios(`http://localhost:3000/all-products/user/${currentUser.email}`)
+    axios(
+      `https://paw-mart-server.vercel.app/all-products/user/${currentUser.email}`
+    )
       .then((data) => {
         setListingsData(data.data);
         console.log(data.data);
@@ -44,7 +46,7 @@ const MyListings = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:3000/all-products/${id}`)
+          .delete(`https://paw-mart-server.vercel.app/all-products/${id}`)
           .then((data) => {
             Swal.fire({
               title: "Deleted!",
