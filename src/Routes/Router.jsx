@@ -39,8 +39,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/product-details/:id",
-        element: <ProductDetails></ProductDetails>,
-        loader: ()=> axios()
+        element: (
+          <PrivateRoute>
+            <ProductDetails></ProductDetails>,
+          </PrivateRoute>
+        ),
       },
       {
         path: "/add-products",
@@ -52,6 +55,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/my-products",
+
         element: (
           <PrivateRoute>
             <MyListing></MyListing>
@@ -60,6 +64,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/my-orders",
+
         element: (
           <PrivateRoute>
             <MyOrders></MyOrders>

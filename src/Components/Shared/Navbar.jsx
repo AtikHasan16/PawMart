@@ -126,10 +126,21 @@ const Navbar = () => {
                     </div>
                     <ul
                       tabIndex="-1"
-                      className="menu menu-lg dropdown-content bg-primary rounded-box  mt-3 w-52 p-2 shadow"
+                      className="menu menu-lg dropdown-content bg-primary rounded-box  mt-3  p-2 shadow"
                     >
+                      <p>User Profile: </p>
                       <li>
-                        <p className="justify-between">
+                        <p className="flex justify-center">
+                          {" "}
+                          {currentUser.displayName}
+                        </p>
+                        <p className="border-b-2 flex justify-center">
+                          {" "}
+                          {currentUser.email}
+                        </p>
+                      </li>
+                      <li>
+                        <p className=" flex justify-between">
                           Theme
                           <label>
                             <label className="toggle text-secondary">

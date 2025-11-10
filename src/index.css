@@ -1,14 +1,16 @@
 @import "tailwindcss";
 @plugin 'daisyui';
 [data-theme="light"] {
-  --color-primary: rgb(15, 69, 93);
+  --color-primary: rgb(29, 35, 42);
   --color-secondary: rgb(253, 218, 179);
   --color-accent: rgb(246, 239, 230);
+  --color-gray-800: rgb(29, 35, 42);
 }
 [data-theme="dark"] {
   --color-primary: rgb(15, 69, 93);
   --color-secondary: rgb(253, 218, 179);
   --color-accent: rgba(0, 0, 0, 0);
+  --color-gray-800: rgb(29, 35, 42);
 }
 
 .btn {
