@@ -75,7 +75,7 @@ const Navbar = () => {
     <div className="">
       <div className="bg-primary">
         <Container>
-          <div className="navbar  border-secondary shadow-sm outfit  md:px-6 py-4">
+          <div className="navbar  border-secondary  outfit  md:px-6 py-4">
             <div className="navbar-start">
               <div className="dropdown">
                 <div
