@@ -7,6 +7,7 @@ import AuthContext from "../../Context/AuthContext";
 import toast from "react-hot-toast";
 import LoadingSpinner from "../LoadingSpinner";
 import { ClockLoader } from "react-spinners";
+import logo from "../../assets/LOGO.png";
 const Navbar = () => {
   const { currentUser, logOutUser, loading } = use(AuthContext);
   //console.log(loading);
@@ -94,7 +95,10 @@ const Navbar = () => {
               to={"/"}
               className="flex items-center font-bold text-secondary   text-2xl "
             >
-              <h1 className="bg-linear-90 from-[#FEEBD5] to-[#fdd6aa] text-transparent bg-clip-text">
+              <h1 className="bg-linear-90 from-[#FEEBD5] to-[#fdd6aa] text-transparent bg-clip-text flex items-center">
+                <figure className="hidden md:block w-13">
+                  <img src={logo} alt="" />
+                </figure>{" "}
                 PawMart
               </h1>
             </Link>

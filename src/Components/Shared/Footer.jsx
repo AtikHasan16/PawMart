@@ -1,7 +1,7 @@
 import React from "react";
 import { CgFacebook, CgYoutube } from "react-icons/cg";
 import { FaXTwitter, FaYoutube } from "react-icons/fa6";
-import logo from "../../assets/cat.png";
+import logo from "../../assets/LOGO.png";
 import Container from "../Container";
 const Footer = () => {
   return (
@@ -9,7 +9,7 @@ const Footer = () => {
       <Container>
         <footer className="footer footer-horizontal footer-center bg-primary text-secondary border-t-2 p-10 rounded-t-2xl sand">
           <aside className="">
-            <figure className="w-20">
+            <figure className="w-30">
               <img src={logo} alt="" />
             </figure>
             <h1 className="bg-linear-90 from-[#FEEBD5] to-[#fdd6aa] text-transparent bg-clip-text text-4xl font-bold">

@@ -43,10 +43,9 @@ const UpdateListing = () => {
       .then((data) => {
         console.log(data.data);
         toast.success("Listing updated successfully");
-        e.reset();
       })
       .catch((error) => {
-        toast.error(error.code);
+        console.log(error);
       });
   };
 
