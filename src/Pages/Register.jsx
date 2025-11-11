@@ -6,6 +6,7 @@ import { Link } from "react-router";
 import { FcGoogle } from "react-icons/fc";
 import { CgEye, CgImage, CgUser } from "react-icons/cg";
 import { GoEyeClosed } from "react-icons/go";
+import { Typewriter } from "react-simple-typewriter";
 
 const Register = () => {
   const { loginWithGoogle, registerWithEmail, setLoading, updateCurrentUser } =
@@ -66,7 +67,7 @@ const Register = () => {
         <div className="card-body">
           {/* Title */}
           <h2 className="card-title text-3xl font-bold justify-center mb-6 text-secondary">
-            Welcome Back
+            <Typewriter words={["Create A New Account"]}></Typewriter>
           </h2>
 
           <form onSubmit={handleRegisterForm}>

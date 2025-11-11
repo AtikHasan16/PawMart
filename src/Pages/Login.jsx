@@ -6,6 +6,7 @@ import { GoEyeClosed } from "react-icons/go";
 import AuthContext from "../Context/AuthContext";
 import toast from "react-hot-toast";
 import { CgEye } from "react-icons/cg";
+import { Typewriter } from "react-simple-typewriter";
 
 const Login = () => {
   const { loginWithGoogle, loginWithEmail, setLoading } = use(AuthContext);
@@ -51,7 +52,7 @@ const Login = () => {
         <div className="card-body">
           {/* Title */}
           <h2 className="card-title text-3xl font-bold justify-center mb-6 text-secondary">
-            Welcome Back
+            <Typewriter words={["Welcome Back"]}></Typewriter>
           </h2>
 
           <form onSubmit={handleLoginForm}>
