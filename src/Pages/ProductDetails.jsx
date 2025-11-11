@@ -166,9 +166,14 @@ const ProductDetails = () => {
               className="modal modal-bottom sm:modal-middle"
             >
               <div className="modal-box bg-gray-800 text-secondary sand max-w-3xl">
-                <h3 className="font-bold text-2xl outfit text-secondary mb-4">
-                  Confirm Your Order
-                </h3>
+                <div className="flex items-center justify-between mb-4 flex-col md:flex-row">
+                  <h3 className="font-bold text-2xl text-secondary ">
+                    Confirm Your Order
+                  </h3>
+                  <h3 className="font-semibold text-[14px] border p-2 rounded-xl">
+                    Product ID: #{_id}
+                  </h3>
+                </div>
 
                 {/* This is the main form for submitting the order */}
                 <form onSubmit={handleOrderSubmit}>
