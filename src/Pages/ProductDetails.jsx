@@ -119,7 +119,10 @@ const ProductDetails = () => {
             </div>
 
             {/* Description */}
-            <p className="mb-4 text-secondary/90 text-base">{description}</p>
+            <div className="mb-4 text-secondary/90 text-base">
+              <p className="font-bold text-xl mb-4">Description: </p>
+              <p className="">{description}</p>
+            </div>
 
             <div className="divider before:bg-secondary/20 after:bg-secondary/20"></div>
 
