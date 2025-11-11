@@ -16,8 +16,6 @@ const CategoryProducts = () => {
     });
   }, [categoryName]);
 
-  //console.log(data);
-
   return (
     <div className=" min-h-[calc(100dvh-400px)] sand my-6">
       <title>Category-Products</title>

@@ -42,7 +42,9 @@ const PetsSupply = () => {
     }
 
     setLoading(true);
-    axios(`http://localhost:3000/all-products/category/${category}`)
+    axios(
+      `https://paw-mart-server.vercel.app/all-products/category/${category}`
+    )
       .then((data) => {
         setSearchData(data.data);
         setLoading(false);
