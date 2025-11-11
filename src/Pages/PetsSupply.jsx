@@ -14,6 +14,7 @@ const PetsSupply = () => {
   const { data } = useLoaderData();
   const [searchData, setSearchData] = useState(data);
   const [loading, setLoading] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState("");
   const motionProps = {
     initial: { opacity: 0, y: 70 },
     whileInView: { opacity: 1, y: 0 },
@@ -36,38 +37,62 @@ const PetsSupply = () => {
         setLoading(false);
       });
   };
+
+  const handleCategoryChange = (e) => {
+    const category = e.target.value;
+    setSelectedCategory(category);
+    console.log(category);
+  };
+
   return (
     <div className="my-10 sand">
       <title>Pets-Supply</title>
 
       <Container>
         <div>
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 bg-primary rounded-full w-fit mx-auto py-4 px-6 text-secondary ">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 bg-primary rounded-full w-fit mx-auto py-4 px-6 text-secondary ">
             <Typewriter words={["Find your Pets & Supply"]} />
           </h2>
         </div>
-        <form
-          onSubmit={handleSearchField}
-          className="pb-10 flex justify-center"
-        >
-          <label className="input input-xl w-8/12   rounded-full relative ">
-            <FaMagnifyingGlass></FaMagnifyingGlass>
-            <input
-              type="search"
-              name="search"
-              placeholder="Search your Items"
-            />
-            <button className="btn absolute  right-2">
-              {loading ? (
-                <span className="flex gap-2 items-end font-bold text-xl">
-                  Searching <PulseLoader size={6} />
-                </span>
-              ) : (
-                <span className="font-bold text-xl">Search</span>
-              )}
-            </button>
-          </label>
-        </form>
+        <div className="text-center flex items-center justify-between">
+          <form onSubmit={handleSearchField} className="pb-6 flex-1/2">
+            <div className=" ">
+              <label className="input   input-xl w-full  rounded-full relative ">
+                <FaMagnifyingGlass></FaMagnifyingGlass>
+                <input
+                  type="search"
+                  name="search"
+                  placeholder="Search your Items"
+                />
+                <button className="btn absolute  right-2">
+                  {loading ? (
+                    <span className="flex gap-2 items-end font-bold text-xl">
+                      Searching <PulseLoader size={6} />
+                    </span>
+                  ) : (
+                    <span className="font-bold text-xl">Search</span>
+                  )}
+                </button>
+              </label>
+            </div>
+          </form>
+          {/* Category Dropdown */}
+          <div className="flex-1/2 flex justify-end">
+            <div className="form-control "></div>
+            <select
+              name="category"
+              className="select select-xl rounded-full  text-secondary"
+              value={selectedCategory}
+              onChange={handleCategoryChange}
+            >
+              <option value="">Filter by category</option>
+              <option value="Pets">Pets (Adoption)</option>
+              <option value="Pet Food">Pet Food</option>
+              <option value="Accessories">Accessories</option>
+              <option value="Pet Care Products">Pet Care Products</option>
+            </select>
+          </div>
+        </div>
         {loading ? (
           <LoadingSpinner></LoadingSpinner>
         ) : (

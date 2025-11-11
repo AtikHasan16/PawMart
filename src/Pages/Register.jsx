@@ -156,7 +156,7 @@ const Register = () => {
               to="/login"
               className="font-bold hover:underline text-secondary"
             >
-              Create one
+              Login here
             </Link>
           </p>
 

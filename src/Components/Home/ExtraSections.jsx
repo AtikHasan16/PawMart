@@ -9,28 +9,32 @@ const petHeroes = [
     title: "Adopter & Volunteer",
     story:
       "Adopting 'Max' from a local shelter was the best decision. He's my loyal companion. Every pet deserves this chance.",
-    imageKeyword: "woman with golden retriever",
+    imageKeyword:
+      "https://img.freepik.com/premium-photo/smiley-woman-holding-golden-retriever-puppy-garden_38023-61.jpg",
   },
   {
     name: "Mr. & Mrs. Kabir",
     title: "Multi-Pet Rescuers",
     story:
       "Our home is full of rescues. Seeing them heal and trust again is the most rewarding experience. We found most of them on PawMart.",
-    imageKeyword: "older couple with two cats",
+    imageKeyword:
+      "https://thumbs.dreamstime.com/b/seventy-year-old-couple-cat-4925388.jpg",
   },
   {
     name: "Saima Islam",
     title: "First-Time Adopter",
     story:
       "I was nervous about adopting, but PawMart made it easy. My cat 'Misty' was shy at first, but now she's the queen of the house!",
-    imageKeyword: "young woman holding a grey cat",
+    imageKeyword:
+      "https://images.pexels.com/photos/28263791/pexels-photo-28263791/free-photo-of-a-woman-holding-a-cat-in-her-arms.jpeg",
   },
   {
     name: "Dhaka Animal Aid",
     title: "Rescue Partner",
     story:
       "We partner with platforms like PawMart to find loving homes for animals in need. Adoption saves lives, period.",
-    imageKeyword: "animal shelter volunteer team",
+    imageKeyword:
+      "https://images.squarespace-cdn.com/content/v1/59076c9b20099e374ac9b724/1503958156281-EHIJZLGTO0B6VYOWGBTW/DSC_6963.jpg",
   },
 ];
 
@@ -74,9 +78,11 @@ const ExtraSections = () => {
               >
                 <div className="card-body p-6">
                   {/* Image Placeholder */}
-                  <div className="w-24 h-24 rounded-full bg-accent flex items-center justify-center mx-auto mb-4">
-                    <FaUser className="text-5xl text-secondary/50" />
-                    {/* Search for: "{hero.imageKeyword}" */}
+
+                  <div className="avatar">
+                    <div className="w-26 h-26 rounded-full bg-accent flex items-center justify-center mx-auto mb-4">
+                      <img src={hero.imageKeyword} />
+                    </div>
                   </div>
 
                   <h3 className="text-xl font-bold text-center outfit">
