@@ -7,7 +7,7 @@ import { Toaster } from "react-hot-toast";
 const MainLayout = () => {
   return (
     <>
-      <div className="bg-accent min-h-screen">
+      <div className="main-layout min-h-screen bg-accent">
         <header>
           <Navbar></Navbar>
         </header>

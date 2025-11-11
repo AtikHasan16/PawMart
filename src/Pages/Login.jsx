@@ -43,9 +43,9 @@ const Login = () => {
       });
   };
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 sand">
+    <div className="min-h-screen flex items-center justify-center p-4 sand login">
       <title>Login</title>
-      <div className="card w-full max-w-md bg-primary shadow-xl rounded-4xl">
+      <div className="border-2 border-secondary w-full max-w-md bg-primary shadow-xl rounded-4xl">
         <div className="card-body">
           {/* Title */}
           <h2 className="card-title text-3xl font-bold justify-center mb-6 text-secondary">
@@ -86,7 +86,7 @@ const Login = () => {
                   {showPass ? (
                     <GoEyeClosed size={24} />
                   ) : (
-                    <CgEye size={24} className="text-red-950"></CgEye>
+                    <CgEye size={24} ></CgEye>
                   )}
                 </div>
               </label>

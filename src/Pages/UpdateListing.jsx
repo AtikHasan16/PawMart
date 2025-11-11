@@ -62,7 +62,7 @@ const UpdateListing = () => {
   return (
     <div className="min-h-screen p-4 md:p-12  text-secondary sand flex items-center">
       <title>Update-Listing</title>
-      <div className="container max-w-3xl mx-auto bg-primary rounded-2xl shadow-xl p-6 md:p-10">
+      <div className="container border-2 max-w-3xl mx-auto bg-primary rounded-2xl shadow-xl p-6 md:p-10">
         <h1 className="text-3xl md:text-4xl font-bold  text-secondary mb-8 md:mb-12 text-center">
           <Typewriter words={[" Update your Listing "]} />
         </h1>

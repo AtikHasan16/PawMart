@@ -31,8 +31,7 @@ const Register = () => {
       return setInvalid("Password must contain at least one lowercase letter.");
     }
     registerWithEmail(email, password)
-      .then((res) => {
-        //console.log(res);
+      .then(() => {
         toast.success("Registration Successful");
 
         updateCurrentUser(name, photoURL)
@@ -63,7 +62,7 @@ const Register = () => {
   return (
     <div className="min-h-screen flex items-center justify-center p-4 sand">
       <title>Register</title>
-      <div className="card w-full max-w-md bg-primary shadow-xl rounded-4xl">
+      <div className="border-2 border-secondary w-full max-w-md bg-primary shadow-xl rounded-4xl">
         <div className="card-body">
           {/* Title */}
           <h2 className="card-title text-3xl font-bold justify-center mb-6 text-secondary">
@@ -114,7 +113,7 @@ const Register = () => {
                   {showPass ? (
                     <GoEyeClosed size={24} />
                   ) : (
-                    <CgEye size={24} className="text-red-950"></CgEye>
+                    <CgEye size={24}></CgEye>
                   )}
                 </div>
               </label>

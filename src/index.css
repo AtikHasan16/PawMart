@@ -1,16 +1,16 @@
 @import "tailwindcss";
 @plugin 'daisyui';
-[data-theme="light"] {
+[data-theme="dark"] {
   --color-primary: rgb(29, 35, 42);
   --color-secondary: rgb(253, 218, 179);
-  --color-accent: rgb(246, 239, 230);
+  --color-accent: rgb(29, 35, 42);
   --color-gray-800: rgb(29, 35, 42);
   --color-gray-900: rgb(12, 20, 29);
 }
-[data-theme="dark"] {
+[data-theme="light"] {
   --color-primary: rgb(15, 69, 93);
   --color-secondary: rgb(253, 218, 179);
-  --color-accent: rgba(0, 0, 0, 0);
+  --color-accent: rgb(246, 239, 230);
   --color-gray-800: rgb(29, 35, 42);
   --color-gray-900: rgb(12, 20, 29);
 }
@@ -18,7 +18,9 @@
 .btn {
   @apply bg-linear-90 from-[#FEEBD5] to-[#F0C899] rounded-full text-lg text-[#422C12] border-none;
 }
-
+.card {
+  border: 2px solid;
+}
 .active {
   border-bottom: 2px solid;
 }
@@ -75,4 +77,12 @@
     ),
     url("./assets/catPic4.jpg");
   height: 700px;
+}
+
+.main-layout {
+  opacity: 1;
+  background-image: radial-gradient(#484b50 0.9px, transparent 0.9px),
+    radial-gradient(#484b50 0.9px, transparent 0.9px);
+  background-size: 38px 38px;
+  background-position: 0 0, 19px 19px;
 }

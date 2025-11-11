@@ -7,8 +7,8 @@ const Footer = () => {
   return (
     <div className="">
       <Container>
-        <footer className="footer footer-horizontal footer-center bg-primary text-primary-content p-10 rounded-t-2xl sand">
-          <aside>
+        <footer className="footer footer-horizontal footer-center bg-primary text-secondary border-t-2 p-10 rounded-t-2xl sand">
+          <aside className="">
             <figure className="w-20">
               <img src={logo} alt="" />
             </figure>
