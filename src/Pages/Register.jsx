@@ -40,7 +40,7 @@ const Register = () => {
             setLoading(false);
           })
           .catch((error) => {
-            toast.error(error);
+            toast.error(error.code);
             setLoading(false);
           });
       })
@@ -56,7 +56,7 @@ const Register = () => {
         toast.success("successfully logged in");
       })
       .catch((error) => {
-        toast.error(error);
+        toast.error(error.code);
       });
   };
   return (
@@ -164,7 +164,11 @@ const Register = () => {
 
           {/* Google Login Button */}
           <div className="form-control">
-            <button onClick={handleGoogleLogin} className="btn w-full">
+            <button
+              type="button"
+              onClick={handleGoogleLogin}
+              className="btn w-full"
+            >
               <FcGoogle size={24} />
               Continue with Google
             </button>

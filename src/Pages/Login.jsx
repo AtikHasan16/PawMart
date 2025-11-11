@@ -20,14 +20,16 @@ const Login = () => {
 
     const email = e.target.email.value;
     const password = e.target.password.value;
-    //console.log(email, password);
+    // console.log(email, password);
 
     loginWithEmail(email, password)
       .then(() => {
         toast.success("successfully logged in");
+        setLoading(false);
       })
       .catch((error) => {
-        toast.error(error);
+        toast.error(error.code);
+        setLoading(false);
       });
   };
 
@@ -86,7 +88,7 @@ const Login = () => {
                   {showPass ? (
                     <GoEyeClosed size={24} />
                   ) : (
-                    <CgEye size={24} ></CgEye>
+                    <CgEye size={24}></CgEye>
                   )}
                 </div>
               </label>
@@ -124,7 +126,11 @@ const Login = () => {
 
           {/* Google Login Button */}
           <div className="form-control">
-            <button onClick={handleGoogleLogin} className="btn w-full">
+            <button
+              type="button"
+              onClick={handleGoogleLogin}
+              className="btn w-full"
+            >
               <FcGoogle size={24} />
               Continue with Google
             </button>
