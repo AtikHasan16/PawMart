@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useLoaderData } from "react-router";
 import Container from "../Components/Container";
 import ListingCard from "../Components/Shared/LstingCard";
@@ -15,12 +15,42 @@ const PetsSupply = () => {
   const [searchData, setSearchData] = useState(data);
   const [loading, setLoading] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("");
+
   const motionProps = {
     initial: { opacity: 0, y: 70 },
     whileInView: { opacity: 1, y: 0 },
     transition: { duration: 1, ease: "easeOut" },
   };
 
+  const handleCategoryChange = (e) => {
+    const category = e.target.value;
+    setSelectedCategory(category);
+    if (category === "All") {
+      setLoading(true);
+      axios(`https://paw-mart-server.vercel.app/all-products`)
+        .then((data) => {
+          setSearchData(data.data);
+          // console.log(data.data);
+          setLoading(false);
+        })
+        .catch((error) => {
+          toast.error(error.code);
+          console.log(error);
+          setLoading(false);
+        });
+      return;
+    }
+
+    setLoading(true);
+    axios(`http://localhost:3000/all-products/category/${category}`)
+      .then((data) => {
+        setSearchData(data.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   const handleSearchField = (e) => {
     e.preventDefault();
     setLoading(true);
@@ -38,34 +68,18 @@ const PetsSupply = () => {
       });
   };
 
-  const handleCategoryChange = (e) => {
-    const category = e.target.value;
-    setSelectedCategory(category);
-    console.log(category);
-    setLoading(true);
-    axios(`http://localhost:3000/all-products/category/${category}`)
-      .then((data) => {
-        console.log(data.data);
-        setSearchData(data.data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
   return (
     <div className="my-10 sand">
       <title>Pets-Supply</title>
 
       <Container>
         <div>
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 bg-primary rounded-full w-fit mx-auto py-4 px-6 text-secondary ">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 md:mb-10 bg-primary rounded-full w-fit mx-auto py-4 px-6 text-secondary ">
             <Typewriter words={["Find your Pets & Supply"]} />
           </h2>
         </div>
-        <div className="text-center flex items-center justify-between pb-10">
-          <form onSubmit={handleSearchField} className=" flex-1/2">
+        <div className="text-center flex items-center justify-between md:pb-10 flex-col md:flex-row">
+          <form onSubmit={handleSearchField} className=" flex-1/2 w-full ">
             <div className=" ">
               <label className="input   input-xl w-full  rounded-full relative ">
                 <FaMagnifyingGlass></FaMagnifyingGlass>
@@ -87,7 +101,7 @@ const PetsSupply = () => {
             </div>
           </form>
           {/* Category Dropdown */}
-          <div className="flex-1/2 flex justify-end">
+          <div className="flex-1/2 flex justify-center md:justify-end w-full mt-4">
             <div className="form-control "></div>
             <select
               name="category"
@@ -98,6 +112,7 @@ const PetsSupply = () => {
               <option value="" disabled>
                 Select Category
               </option>
+              <option value="All">All</option>
               <option value="Pets">Pets (Adoption)</option>
               <option value="Pet Food">Pet Food</option>
               <option value="Accessories">Accessories</option>
