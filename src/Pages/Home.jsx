@@ -16,7 +16,7 @@ const Home = () => {
     <>
       <title>Home</title>
       <Container className={"sand"}>
-        <header className="p-3">
+        <header className="px-3 my-5">
           <Banner></Banner>
         </header>
         <main>

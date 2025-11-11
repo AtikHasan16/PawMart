@@ -23,7 +23,7 @@ export default function Banner() {
       className="mySwiper "
     >
       <SwiperSlide>
-        <div className="slider-1 bg-cover rounded-2xl p-4 sm:py-10 my-10 flex justify-center items-end bg-center ">
+        <div className="slider-1 bg-cover rounded-2xl p-4 sm:py-10  flex justify-center items-end bg-center ">
           <div className="text-center space-y-6">
             <h1 className="text-6xl font-bold text-secondary">
               "Find Your Furry Friend Today!"
@@ -37,7 +37,7 @@ export default function Banner() {
         </div>
       </SwiperSlide>
       <SwiperSlide>
-        <div className="slider-2 bg-cover rounded-2xl p-4 sm:py-10 my-10 flex justify-center items-end bg-center ">
+        <div className="slider-2 bg-cover rounded-2xl p-4 sm:py-10  flex justify-center items-end bg-center ">
           <div className="text-center space-y-6">
             <h1 className="text-6xl font-bold text-secondary">
               Adopt, Don't Shop — Give a Pet a Home.
@@ -51,7 +51,7 @@ export default function Banner() {
         </div>
       </SwiperSlide>
       <SwiperSlide>
-        <div className="slider-3 bg-cover rounded-2xl p-4 sm:py-10 my-10 flex justify-center items-end bg-center ">
+        <div className="slider-3 bg-cover rounded-2xl p-4 sm:py-10  flex justify-center items-end bg-center ">
           <div className="text-center space-y-6">
             <h1 className="text-6xl font-bold text-secondary">
               "Because Every Pet Deserves Love and Care."
@@ -65,7 +65,7 @@ export default function Banner() {
         </div>
       </SwiperSlide>
       <SwiperSlide>
-        <div className="slider-4 bg-cover rounded-2xl p-4 sm:py-10 my-10 flex justify-center items-end bg-center ">
+        <div className="slider-4 bg-cover rounded-2xl p-4 sm:py-10  flex justify-center items-end bg-center ">
           <div className="text-center space-y-6">
             <h1 className="text-6xl font-bold text-secondary">
               "More Than a Pet, It's Family"

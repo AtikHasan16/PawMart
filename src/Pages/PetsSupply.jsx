@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useLoaderData } from "react-router";
 import Container from "../Components/Container";
 import ListingCard from "../Components/Shared/LstingCard";
@@ -81,7 +81,7 @@ const PetsSupply = () => {
         <div className="text-center flex items-center justify-between md:pb-10 flex-col md:flex-row">
           <form onSubmit={handleSearchField} className=" flex-1/2 w-full ">
             <div className=" ">
-              <label className="input   input-xl w-full  rounded-full relative ">
+              <label className="input   input-xl w-full bg-primary text-secondary rounded-full relative ">
                 <FaMagnifyingGlass></FaMagnifyingGlass>
                 <input
                   type="search"
@@ -102,10 +102,9 @@ const PetsSupply = () => {
           </form>
           {/* Category Dropdown */}
           <div className="flex-1/2 flex justify-center md:justify-end w-full mt-4">
-            <div className="form-control "></div>
             <select
               name="category"
-              className="select select-xl rounded-full  text-secondary"
+              className="select select-xl rounded-full bg-primary text-secondary"
               value={selectedCategory}
               onChange={handleCategoryChange}
             >

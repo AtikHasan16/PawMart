@@ -73,112 +73,116 @@ const Navbar = () => {
 
   return (
     <div className="">
-      <Container>
-        <div className="navbar bg-primary border-b-2 border-secondary shadow-sm outfit sm:rounded-b-2xl md:px-6 py-4">
-          <div className="navbar-start">
-            <div className="dropdown">
-              <div
-                tabIndex={0}
-                role="button"
-                className=" text-amber-100 mr-2 lg:hidden"
-              >
-                <CgMenuGridR size={24} />
+      <div className="bg-primary">
+        <Container>
+          <div className="navbar  border-secondary shadow-sm outfit  md:px-6 py-4">
+            <div className="navbar-start">
+              <div className="dropdown">
+                <div
+                  tabIndex={0}
+                  role="button"
+                  className=" text-amber-100 mr-2 lg:hidden"
+                >
+                  <CgMenuGridR size={24} />
+                </div>
+                <ul
+                  tabIndex="-1"
+                  className="menu menu-sm dropdown-content bg-primary rounded-box  mt-3 w-52 p-2 shadow"
+                >
+                  {links}
+                </ul>
               </div>
-              <ul
-                tabIndex="-1"
-                className="menu menu-sm dropdown-content bg-primary rounded-box  mt-3 w-52 p-2 shadow"
+              <Link
+                to={"/"}
+                className="flex items-center font-bold text-secondary   text-2xl "
               >
-                {links}
-              </ul>
+                <h1 className="bg-linear-90 from-[#FEEBD5] to-[#fdd6aa] text-transparent bg-clip-text flex items-center">
+                  <figure className="hidden md:block w-13">
+                    <img src={logo} alt="" />
+                  </figure>{" "}
+                  PawMart
+                </h1>
+              </Link>
             </div>
-            <Link
-              to={"/"}
-              className="flex items-center font-bold text-secondary   text-2xl "
-            >
-              <h1 className="bg-linear-90 from-[#FEEBD5] to-[#fdd6aa] text-transparent bg-clip-text flex items-center">
-                <figure className="hidden md:block w-13">
-                  <img src={logo} alt="" />
-                </figure>{" "}
-                PawMart
-              </h1>
-            </Link>
-          </div>
-          <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal px-1">{links}</ul>
-          </div>
-          {loading ? (
-            <div className="navbar-end text-amber-100">
-              <ClockLoader color="#FDD6AA"></ClockLoader>
+            <div className="navbar-center hidden lg:flex">
+              <ul className="menu menu-horizontal px-1">{links}</ul>
             </div>
-          ) : (
-            <div className="navbar-end">
-              {currentUser ? (
-                <div className="navbar-end gap-2">
-                  <button className="btn" onClick={handleLogout}>
-                    Logout
-                  </button>
+            {loading ? (
+              <div className="navbar-end text-amber-100">
+                <ClockLoader color="#FDD6AA"></ClockLoader>
+              </div>
+            ) : (
+              <div className="navbar-end">
+                {currentUser ? (
+                  <div className="navbar-end gap-2">
+                    <button className="btn" onClick={handleLogout}>
+                      Logout
+                    </button>
 
-                  <div className="dropdown dropdown-end text-secondary">
-                    <div tabIndex={0} role="button" className="avatar">
-                      <div className="ring-primary ring-offset-secondary w-12 rounded-full ring-3 ring-offset-2">
-                        <img
-                          alt="Tailwind CSS Navbar component"
-                          src={currentUser.photoURL}
-                          referrerPolicy="no-referrer"
-                        />
+                    <div className="dropdown dropdown-end text-secondary">
+                      <div tabIndex={0} role="button" className="avatar">
+                        <div className="ring-primary ring-offset-secondary w-12 rounded-full ring-3 ring-offset-2">
+                          <img
+                            alt="Tailwind CSS Navbar component"
+                            src={currentUser.photoURL}
+                            referrerPolicy="no-referrer"
+                          />
+                        </div>
                       </div>
-                    </div>
-                    <ul
-                      tabIndex="-1"
-                      className="menu menu-lg dropdown-content bg-primary rounded-box  mt-3  p-2 shadow"
-                    >
-                      <p>User Profile: </p>
-                      <li>
-                        <p className="flex justify-center">
-                          {" "}
-                          {currentUser.displayName}
-                        </p>
-                        <p className="border-b-2 flex justify-center">
-                          {" "}
-                          {currentUser.email}
-                        </p>
-                      </li>
-                      <li>
-                        <p className=" flex justify-between">
-                          Theme
-                          <label>
-                            <label className="toggle text-secondary">
-                              <input
-                                onChange={(e) => handleTheme(e.target.checked)}
-                                type="checkbox"
-                                className="theme-controller"
-                                defaultChecked={
-                                  localStorage.getItem("theme") === "dark"
-                                }
-                              />
-                              <CgSun className="text-primary"></CgSun>
-                              <CgMoon className="text-primary"></CgMoon>
+                      <ul
+                        tabIndex="-1"
+                        className="menu menu-lg dropdown-content bg-primary rounded-box  mt-3  p-2 shadow"
+                      >
+                        <p>User Profile: </p>
+                        <li>
+                          <p className="flex justify-center">
+                            {" "}
+                            {currentUser.displayName}
+                          </p>
+                          <p className="border-b-2 flex justify-center">
+                            {" "}
+                            {currentUser.email}
+                          </p>
+                        </li>
+                        <li>
+                          <p className=" flex justify-between">
+                            Theme
+                            <label>
+                              <label className="toggle text-secondary">
+                                <input
+                                  onChange={(e) =>
+                                    handleTheme(e.target.checked)
+                                  }
+                                  type="checkbox"
+                                  className="theme-controller"
+                                  defaultChecked={
+                                    localStorage.getItem("theme") === "dark"
+                                  }
+                                />
+                                <CgSun className="text-primary"></CgSun>
+                                <CgMoon className="text-primary"></CgMoon>
+                              </label>
                             </label>
-                          </label>
-                        </p>
-                      </li>
-                    </ul>
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
-                </div>
-              ) : (
-                <div className="navbar-end gap-2">
-                  <Link to={"/login"} className="btn ">
-                    Login
-                  </Link>
-                  <Link to={"/register"} className="btn ">
-                    Register
-                  </Link>
-                </div>
-              )}
-            </div>
-          )}
-        </div>
-      </Container>
+                ) : (
+                  <div className="navbar-end gap-2">
+                    <Link to={"/login"} className="btn ">
+                      Login
+                    </Link>
+                    <Link to={"/register"} className="btn ">
+                      Register
+                    </Link>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+        </Container>
+      </div>
     </div>
   );
 };

@@ -18,7 +18,7 @@ const CategoryProducts = () => {
   //console.log(data);
 
   return (
-    <div className="my-10 min-h-[calc(100dvh-400px)] sand">
+    <div className=" min-h-[calc(100dvh-400px)] sand">
       <title>Category-Products</title>
       <Container>
         {data.length === 0 ? (
