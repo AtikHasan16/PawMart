@@ -42,6 +42,16 @@ const PetsSupply = () => {
     const category = e.target.value;
     setSelectedCategory(category);
     console.log(category);
+    setLoading(true);
+    axios(`http://localhost:3000/all-products/category/${category}`)
+      .then((data) => {
+        console.log(data.data);
+        setSearchData(data.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -54,8 +64,8 @@ const PetsSupply = () => {
             <Typewriter words={["Find your Pets & Supply"]} />
           </h2>
         </div>
-        <div className="text-center flex items-center justify-between">
-          <form onSubmit={handleSearchField} className="pb-6 flex-1/2">
+        <div className="text-center flex items-center justify-between pb-10">
+          <form onSubmit={handleSearchField} className=" flex-1/2">
             <div className=" ">
               <label className="input   input-xl w-full  rounded-full relative ">
                 <FaMagnifyingGlass></FaMagnifyingGlass>
@@ -85,7 +95,9 @@ const PetsSupply = () => {
               value={selectedCategory}
               onChange={handleCategoryChange}
             >
-              <option value="">Filter by category</option>
+              <option value="" disabled>
+                Select Category
+              </option>
               <option value="Pets">Pets (Adoption)</option>
               <option value="Pet Food">Pet Food</option>
               <option value="Accessories">Accessories</option>
