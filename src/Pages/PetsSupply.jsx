@@ -29,14 +29,22 @@ const PetsSupply = () => {
             <input type="search" required placeholder="Search your Items" />
           </label>
         </div>
-        <motion.div
-          {...motionProps}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 p-4 "
-        >
-          {data.map((listing) => (
-            <ListingCard key={listing._id} listing={listing}></ListingCard>
-          ))}
-        </motion.div>
+        {data.length === 0 ? (
+          <div className="md:my-40">
+            <h1 className="text-center text-4xl text-secondary/50 font-bold">
+              No Items Found
+            </h1>
+          </div>
+        ) : (
+          <motion.div
+            {...motionProps}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 p-4 "
+          >
+            {data.map((listing) => (
+              <ListingCard key={listing._id} listing={listing}></ListingCard>
+            ))}
+          </motion.div>
+        )}
       </Container>
     </div>
   );
