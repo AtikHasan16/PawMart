@@ -60,7 +60,7 @@ const PetsSupply = () => {
             <button className="btn absolute  right-2">
               {loading ? (
                 <span className="flex gap-2 items-end font-bold text-xl">
-                  Searching <PulseLoader size={8} />
+                  Searching <PulseLoader size={6} />
                 </span>
               ) : (
                 <span className="font-bold text-xl">Search</span>
