@@ -24,7 +24,7 @@ const PetsSupply = () => {
     e.preventDefault();
     setLoading(true);
     const searchText = e.target.search.value;
-    axios(`http://localhost:3000/search?search=${searchText}`)
+    axios(`https://paw-mart-server.vercel.app/search?search=${searchText}`)
       .then((data) => {
         setSearchData(data.data);
         // console.log(data.data);
@@ -72,7 +72,7 @@ const PetsSupply = () => {
           <LoadingSpinner></LoadingSpinner>
         ) : (
           <div>
-            {data.length === 0 ? (
+            {searchData.length === 0 ? (
               <div className="md:my-40">
                 <h1 className="text-center text-4xl text-secondary/50 font-bold">
                   No Items Found
