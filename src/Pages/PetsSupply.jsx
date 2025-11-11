@@ -79,22 +79,22 @@ const PetsSupply = () => {
           </h2>
         </div>
         <div className="text-center flex items-center justify-between md:pb-10 flex-col md:flex-row">
-          <form onSubmit={handleSearchField} className=" flex-1/2 w-full ">
+          <form onSubmit={handleSearchField} className=" flex-1/2 w-full px-5 ">
             <div className=" ">
-              <label className="input   input-xl w-full bg-primary text-secondary rounded-full relative ">
+              <label className="input   md:input-xl w-full bg-primary text-secondary rounded-full relative ">
                 <FaMagnifyingGlass></FaMagnifyingGlass>
                 <input
                   type="search"
                   name="search"
                   placeholder="Search your Items"
                 />
-                <button className="btn absolute  right-2">
+                <button className="btn btn-sm md:btn-lg absolute  right-1">
                   {loading ? (
-                    <span className="flex gap-2 items-end font-bold text-xl">
-                      Searching <PulseLoader size={6} />
+                    <span className="flex gap-2 items-end font-bold md:text-xl">
+                      <PulseLoader size={6} />
                     </span>
                   ) : (
-                    <span className="font-bold text-xl">Search</span>
+                    <span className="font-bold md:text-xl">Search</span>
                   )}
                 </button>
               </label>
@@ -104,7 +104,7 @@ const PetsSupply = () => {
           <div className="flex-1/2 flex justify-center md:justify-end w-full mt-4">
             <select
               name="category"
-              className="select select-xl rounded-full bg-primary text-secondary"
+              className="select md:select-xl rounded-full bg-primary text-secondary"
               value={selectedCategory}
               onChange={handleCategoryChange}
             >
