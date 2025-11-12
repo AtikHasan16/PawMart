@@ -83,7 +83,7 @@ const PetsSupply = () => {
         <div className="text-center flex items-center justify-between md:pb-10 flex-col md:flex-row">
           <form
             onSubmit={handleSearchField}
-            className=" flex-1/2 w-full  md:pl-4"
+            className=" flex-1/2 w-full  md:pl-4 px-4"
           >
             <div className=" ">
               <label className="input   md:input-xl w-full bg-primary text-secondary rounded-full relative ">
@@ -106,7 +106,7 @@ const PetsSupply = () => {
             </div>
           </form>
           {/* Category Dropdown */}
-          <div className="flex-1/2 flex justify-center md:justify-end w-full mt-4 md:pr-4">
+          <div className="flex-1/2 flex justify-center md:justify-end w-full mt-4 md:mt-0 md:pr-4">
             <select
               name="category"
               className="select md:select-xl rounded-full bg-primary text-secondary"

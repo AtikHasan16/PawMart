@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 import { Typewriter } from "react-simple-typewriter";
 import { jsPDF } from "jspdf";
 import { autoTable } from "jspdf-autotable";
+import toast from "react-hot-toast";
 
 const MyOrders = () => {
   const { currentUser } = use(AuthContext);
@@ -63,6 +64,39 @@ const MyOrders = () => {
     doc.save("My-Orders.pdf");
   };
 
+  const handleDeleteData = (id) => {
+    console.log(id);
+
+    Swal.fire({
+      title: "You want to cancel your order?",
+      text: "If you change your mind, contact us!",
+      icon: "warning",
+      theme: "dark",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Cancel order!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(`https://paw-mart-server.vercel.app/orderData/${id}`)
+          .then((data) => {
+            Swal.fire({
+              title: "Order canceled!",
+              theme: "dark",
+              text: "Your order has been canceled. If you mistakenly canceled, contact us as quick as possible.",
+              icon: "success",
+            });
+            console.log(data.data);
+            setOrderData(orderData.filter((data) => data._id !== id));
+          })
+          .catch((error) => {
+            toast.error(error.code);
+          });
+      }
+    });
+  };
+
   return (
     <div>
       <title>My-Orders</title>
@@ -86,6 +120,7 @@ const MyOrders = () => {
                     <th>Pickup Date</th>
                     <th>Address</th>
                     <th>Phone</th>
+                    <th className="text-center">Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -100,6 +135,18 @@ const MyOrders = () => {
                         {order.address}
                       </td>
                       <td>{order.phone}</td>
+                      <td className="text-center">
+                        <button
+                          className="btn btn-sm "
+                          onClick={() => {
+                            handleDeleteData(order._id);
+                          }}
+                        >
+                          {" "}
+                          Cancel
+                          <FaTrash />
+                        </button>
+                      </td>
                     </tr>
                   ))}
                 </tbody>

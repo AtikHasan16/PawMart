@@ -87,7 +87,7 @@ const ProductDetails = () => {
 
   return (
     <div className="min-h-screen p-4 md:p-12  text-secondary sand">
-      <title></title>
+      <title>Product-Details</title>
       <div className="container max-w-7xl mx-auto">
         {/* We use card-side for the two-column layout on desktop */}
         <div className="card rounded-2xl lg:card-side bg-gray-800 shadow-2xl">
