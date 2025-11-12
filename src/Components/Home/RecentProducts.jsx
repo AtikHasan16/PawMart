@@ -15,7 +15,7 @@ const RecentProducts = () => {
       {data.length === 0 ? (
         <div>
           <div className="md:my-40">
-            <h1 className="text-center text-4xl text-secondary/50 font-bold">
+            <h1 className="text-center text-4xl text-gray-500 font-bold">
               No Items Found
             </h1>
           </div>

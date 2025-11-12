@@ -127,7 +127,7 @@ const PetsSupply = () => {
           <div>
             {searchData.length === 0 ? (
               <div className="md:my-40">
-                <h1 className="text-center text-4xl text-secondary/50 font-bold">
+                <h1 className="text-center text-4xl text-gray-500 font-bold min-h-[calc(100dvh-500px)] content-center">
                   No Items Found
                 </h1>
               </div>
