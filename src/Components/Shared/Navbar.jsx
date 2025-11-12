@@ -5,7 +5,6 @@ import { Link, NavLink } from "react-router";
 // import logo from "../../assets/LOGO.png";
 import AuthContext from "../../Context/AuthContext";
 import toast from "react-hot-toast";
-import LoadingSpinner from "../LoadingSpinner";
 import { ClockLoader } from "react-spinners";
 import logo from "../../assets/LOGO.png";
 const Navbar = () => {
