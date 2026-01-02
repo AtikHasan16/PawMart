@@ -21,7 +21,7 @@ const RecentProducts = () => {
           </div>
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 p-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 p-4">
           {data.map((listing) => (
             <ListingCard key={listing._id} listing={listing}></ListingCard>
           ))}
