@@ -37,20 +37,20 @@ const categories = [
 
 const Category = () => {
   return (
-    <div className="py-15 md:py-10 p-3 sand">
-      <div className="container">
+    <div className="py-15 md:py-10 p-3 sand ">
+      <div className="">
         {/* SECTION TITLE */}
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 bg-primary rounded-full w-fit mx-auto py-4 px-6 text-secondary">
           <Typewriter words={["Shop by Category"]}></Typewriter>
         </h2>
 
         {/* CATEGORY GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 ">
           {categories.map((category) => (
             <Link
               to={category.link}
               key={category.name}
-              className="block group "
+              className="block group"
             >
               <div className="card h-full text-secondary transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl shadow-gray-800 bg-primary rounded-2xl">
                 <div className="card-body items-center text-center p-8">
