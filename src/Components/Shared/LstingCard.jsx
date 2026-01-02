@@ -13,18 +13,18 @@ const ListingCard = ({ listing }) => {
     category === "Pets" || Price === 0 ? "Free for Adoption" : `৳${Price}`;
 
   return (
-    <div className="card card-compact rounded-2xl h-full bg-primary text-secondary transition-all duration-300 hover:scale-105 hover:shadow-xl shadow-gray-800 sand">
+    <div className="card card-compact rounded-2xl h-full bg-primary text-secondary transition-all duration-300 hover:scale-102 hover:shadow-xl shadow-gray-800 sand">
       <figure>
         <img
           src={image}
           alt={`Image of ${name}`}
-          className="h-60 w-full object-cover"
+          className="h-40 w-full object-cover"
         />
       </figure>
 
       <div className="card-body">
         {/* Name */}
-        <h2 className="card-title text-2xl outfit">{name}</h2>
+        <h2 className="card-title text-xl outfit">{name}</h2>
 
         {/* Info Section with Icons */}
         <div className="space-y-2 mt-2">
@@ -43,7 +43,7 @@ const ListingCard = ({ listing }) => {
           {/* Price */}
           <div className="flex items-center gap-2">
             <FaTag className="text-secondary/80" />
-            <span className="text-lg font-bold">{displayPrice}</span>
+            <span className="text-md font-bold">{displayPrice}</span>
           </div>
         </div>
 

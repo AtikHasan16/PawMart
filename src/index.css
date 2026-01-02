@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @plugin 'daisyui';
 [data-theme="dark"] {
-  --color-primary: rgb(29, 35, 42);
+  --color-primary: rgb(41, 49, 58);
   --color-secondary: rgb(253, 218, 179);
   --color-accent: rgb(29, 35, 42);
   --color-gray-800: rgb(29, 35, 42);
@@ -18,11 +18,10 @@
 .btn {
   @apply bg-linear-90 from-[#FEEBD5] to-[#F0C899] rounded-full text-lg text-[#422C12] border-none;
 }
-.card {
-  border: 2px solid;
-}
+
 .active {
-  border-bottom: 2px solid;
+  background-color: var(--color-accent);
+  border-radius: 10px;
 }
 
 .sand {
