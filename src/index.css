@@ -20,7 +20,7 @@
 }
 
 .active {
-  background-color: var(--color-accent);
+  background-color: rgb(29, 35, 42);
   border-radius: 10px;
 }
 
@@ -78,10 +78,39 @@
   height: 700px;
 }
 
-.main-layout {
+[data-theme="dark"] .main-layout {
   opacity: 1;
-  background-image: radial-gradient(#484b50 0.9px, transparent 0.9px),
-    radial-gradient(#484b50 0.9px, transparent 0.9px);
-  background-size: 38px 38px;
-  background-position: 0 0, 19px 19px;
+  background-image: linear-gradient(
+      #3f3f3f 0.1px,
+      transparent 0.1px,
+      transparent calc(100% - 0.6px),
+      #3f3f3f calc(100% - 0.4px)
+    ),
+    linear-gradient(
+      90deg,
+      #3f3f3f 0.1px,
+      transparent 0.1px,
+      transparent calc(100% - 0.6px),
+      #3f3f3f calc(100% - 0.4px)
+    );
+  background-size: 2% 2%;
+  border: 0.5 solid #3f3f3f;
+}
+[data-theme="light"] .main-layout {
+  opacity: 1;
+  background-image: linear-gradient(
+      #d4d4d4 0.1px,
+      transparent 0.1px,
+      transparent calc(100% - 0.6px),
+      #d4d4d4 calc(100% - 0.4px)
+    ),
+    linear-gradient(
+      90deg,
+      #d4d4d4 0.1px,
+      transparent 0.1px,
+      transparent calc(100% - 0.6px),
+      #d4d4d4 calc(100% - 0.4px)
+    );
+  background-size: 2% 2%;
+  border: 0.5 solid #d4d4d4;
 }
