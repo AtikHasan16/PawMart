@@ -67,7 +67,13 @@ const Navbar = () => {
       </li>
     </>
   );
-
+  const skeletons = Array(6)
+    .fill(0)
+    .map((_, i) => (
+      <li key={i}>
+        <div className="skeleton h-7 w-24 bg-secondary/20 "></div>
+      </li>
+    ));
   const handleLogout = () => {
     logOutUser()
       .then(() => {
@@ -104,11 +110,14 @@ const Navbar = () => {
               </div>
             </div>
             <div className="navbar-center hidden xl:flex">
-              <ul className="menu menu-horizontal px-1">{links}</ul>
+              <ul className="menu menu-horizontal gap-2">
+                {loading ? skeletons : links}
+              </ul>
             </div>
             {loading ? (
-              <div className="navbar-end text-amber-100">
-                <ClockLoader color="#FDD6AA"></ClockLoader>
+              <div className="navbar-end gap-2 flex items-center">
+                <div className="skeleton h-10 w-24 bg-secondary/20 rounded-full"></div>
+                <div className="skeleton h-12 w-12 bg-secondary/20 rounded-full"></div>
               </div>
             ) : (
               <div className="navbar-end">
