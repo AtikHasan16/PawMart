@@ -6,13 +6,12 @@ const AboutUs = () => {
   return (
     <div className="min-h-screen sand text-secondary transition-colors duration-300">
       {/* Simple Hero Section */}
-      <section className="py-16 lg:py-24">
+      <section className="py-12">
         <Container>
           <div className="flex flex-col items-center text-center space-y-6 max-w-4xl mx-auto">
-            <h1 className=" text-4xl font-bold lg:text-4xl bg-primary px-8 py-2 rounded-full">
-              We Care for Your{" "}
-              <span className="text-secondary ">Pets</span> Like
-              Family
+            <h1 className=" text-4xl font-bold lg:text-4xl bg-primary px-8 py-3 rounded-full">
+              We Care for Your <span className="text-secondary ">Pets</span>{" "}
+              Like Family
             </h1>
             <p className="text-stroke opacity-80 max-w-2xl mx-auto ">
               At PawMart, we believe every pet deserves the best. We connect
