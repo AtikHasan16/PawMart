@@ -14,7 +14,7 @@ const AboutUs = () => {
               <span className="text-secondary ">Pets</span> Like
               Family
             </h1>
-            <p className=" text-lg opacity-80 max-w-2xl mx-auto text-amber-500">
+            <p className="text-stroke opacity-80 max-w-2xl mx-auto ">
               At PawMart, we believe every pet deserves the best. We connect
               loving owners with top-quality supplies and a community that
               cares.
