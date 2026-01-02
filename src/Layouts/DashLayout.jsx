@@ -3,9 +3,11 @@ import React from "react";
 const DashLayout = () => {
   return (
     <>
-      <header>DashLayout</header>
-      <aside></aside>
-      <main></main>
+      <div className="bg-accent min-h-screen">
+        <header>DashLayout</header>
+        <aside></aside>
+        <main></main>
+      </div>
     </>
   );
 };
