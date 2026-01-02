@@ -1,4 +1,4 @@
-import React, { use, useEffect, useState } from "react";
+import React, { use } from "react";
 import Container from "../Container";
 import { CgMenuGridR, CgMoon, CgSun } from "react-icons/cg";
 import { Link, NavLink } from "react-router";
@@ -7,11 +7,10 @@ import AuthContext from "../../Context/AuthContext";
 import toast from "react-hot-toast";
 import { ClockLoader } from "react-spinners";
 import logo from "../../assets/LOGO.png";
+import { ThemeController } from "./ThemeController";
 const Navbar = () => {
   const { currentUser, logOutUser, loading } = use(AuthContext);
   //console.log(loading);
-
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
   const links = (
     <>
@@ -23,6 +22,21 @@ const Navbar = () => {
       <li>
         <NavLink to={"/pets-supply"} className="text-secondary  text-lg ">
           Pets & Supplies
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to={"/about-us"} className="text-secondary  text-lg ">
+          About Us
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to={"/contact"} className="text-secondary  text-lg ">
+          Contact Us
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to={"/support"} className="text-secondary  text-lg ">
+          Support
         </NavLink>
       </li>
       {!currentUser ? (
@@ -57,17 +71,6 @@ const Navbar = () => {
       .catch((err) => {
         toast.error(err.code);
       });
-  };
-
-  useEffect(() => {
-    const html = document.querySelector("html");
-    html.setAttribute("data-theme", theme);
-
-    localStorage.setItem("theme", theme);
-  }, [theme]);
-
-  const handleTheme = (checked) => {
-    setTheme(checked ? "dark" : "light");
   };
 
   return (
@@ -145,23 +148,7 @@ const Navbar = () => {
                         </li>
                         <li>
                           <p className=" flex justify-between">
-                            Theme
-                            <label>
-                              <label className="toggle text-secondary">
-                                <input
-                                  onChange={(e) =>
-                                    handleTheme(e.target.checked)
-                                  }
-                                  type="checkbox"
-                                  className="theme-controller"
-                                  defaultChecked={
-                                    localStorage.getItem("theme") === "dark"
-                                  }
-                                />
-                                <CgSun className="text-primary"></CgSun>
-                                <CgMoon className="text-primary"></CgMoon>
-                              </label>
-                            </label>
+                            Theme <ThemeController />
                           </p>
                         </li>
                       </ul>
@@ -175,6 +162,9 @@ const Navbar = () => {
                     <Link to={"/register"} className="btn ">
                       Register
                     </Link>
+                    <div>
+                      <ThemeController />
+                    </div>
                   </div>
                 )}
               </div>

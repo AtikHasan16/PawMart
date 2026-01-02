@@ -15,6 +15,7 @@ import axios from "axios";
 import LoadingSpinner from "../Components/LoadingSpinner";
 import ProductDetails from "../Pages/ProductDetails";
 import UpdateListing from "../Pages/UpdateListing";
+import { AboutUs } from "../Pages/AboutUs";
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
       {
         path: "/product-details/:id",
         element: <ProductDetails></ProductDetails>,
+      },
+      {
+        path: "/about-us",
+        element: <AboutUs></AboutUs>,
       },
       {
         path: "/add-products",
