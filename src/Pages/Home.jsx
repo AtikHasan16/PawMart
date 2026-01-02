@@ -15,7 +15,7 @@ const Home = () => {
   return (
     <>
       <title>Home</title>
-      <Container className={"sand"}>
+      <Container>
         <header className="px-3 my-5">
           <Banner></Banner>
         </header>

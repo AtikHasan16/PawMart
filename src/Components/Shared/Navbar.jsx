@@ -58,6 +58,11 @@ const Navbar = () => {
               My Orders
             </NavLink>
           </li>
+          <li>
+            <NavLink to={"/dashboard"} className="text-secondary  text-lg ">
+              Dashboard
+            </NavLink>
+          </li>
         </>
       )}
     </>

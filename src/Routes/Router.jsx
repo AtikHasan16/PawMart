@@ -18,6 +18,8 @@ import UpdateListing from "../Pages/UpdateListing";
 import { AboutUs } from "../Pages/AboutUs";
 import Contact from "../Pages/Contact";
 import Support from "../Pages/Support";
+import DashLayout from "../Layouts/DashLayout";
+import Dashboard from "../Pages/DashBoard/Dashboard";
 
 const router = createBrowserRouter([
   {
@@ -108,6 +110,20 @@ const router = createBrowserRouter([
             <Register></Register>
           </GuestRouter>
         ),
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <DashLayout></DashLayout>
+      </PrivateRoute>
+    ),
+    children: [
+      {
+        index: true,
+        element: <Dashboard></Dashboard>,
       },
     ],
   },
