@@ -5,7 +5,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import { FaPaw, FaTag } from "react-icons/fa6";
 import { IoLocationOutline } from "react-icons/io5";
 import { MdOutlineEmail } from "react-icons/md";
-import { useParams } from "react-router";
+import { Navigate, useNavigate, useParams } from "react-router";
 import AuthContext from "../Context/AuthContext";
 import toast from "react-hot-toast";
 import LoadingSpinner from "../Components/LoadingSpinner";
@@ -16,7 +16,7 @@ const ProductDetails = () => {
   const modalRef = useRef(null);
   const [pageDetails, setPageDetails] = useState({});
   const [loading, setLoading] = useState(true);
-
+  const navigate = useNavigate();
   useEffect(() => {
     setLoading(true);
     axios(`https://paw-mart-server.vercel.app/all-products/${id}`)
@@ -145,10 +145,20 @@ const ProductDetails = () => {
             {/* Action Button (This is where your modal will open) */}
             <div className="card-actions justify-end mt-4">
               {/* This button will use your custom .btn style */}
-              <button className="btn w-full lg:w-auto" onClick={handleModal}>
-                <ButtonIcon />
-                {buttonText}
-              </button>
+              {!currentUser ? (
+                <button
+                  className="btn w-full lg:w-auto"
+                  onClick={() => navigate("/login")}
+                >
+                  <ButtonIcon />
+                  {buttonText}
+                </button>
+              ) : (
+                <button className="btn w-full lg:w-auto" onClick={handleModal}>
+                  <ButtonIcon />
+                  {buttonText}
+                </button>
+              )}
             </div>
 
             {/* Modal form */}
@@ -189,7 +199,7 @@ const ProductDetails = () => {
                       <input
                         type="text"
                         name="name"
-                        value={currentUser.displayName || ""}
+                        value={currentUser?.displayName || ""}
                         readOnly
                         className="input w-full bg-gray-800 text-secondary"
                       />
@@ -203,7 +213,7 @@ const ProductDetails = () => {
                       <input
                         type="email"
                         name="email"
-                        value={currentUser.email || ""}
+                        value={currentUser?.email || ""}
                         readOnly
                         className="input w-full bg-gray-800 text-secondary"
                       />
