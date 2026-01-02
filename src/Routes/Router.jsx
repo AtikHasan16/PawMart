@@ -16,6 +16,8 @@ import LoadingSpinner from "../Components/LoadingSpinner";
 import ProductDetails from "../Pages/ProductDetails";
 import UpdateListing from "../Pages/UpdateListing";
 import { AboutUs } from "../Pages/AboutUs";
+import Contact from "../Pages/Contact";
+import Support from "../Pages/Support";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +49,14 @@ const router = createBrowserRouter([
       {
         path: "/about-us",
         element: <AboutUs></AboutUs>,
+      },
+      {
+        path: "/contact",
+        element: <Contact></Contact>,
+      },
+      {
+        path: "/support",
+        element: <Support></Support>,
       },
       {
         path: "/add-products",
