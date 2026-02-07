@@ -132,8 +132,8 @@ const Navbar = () => {
                         <div className="ring-primary ring-offset-secondary w-12 rounded-full ring-3 ring-offset-2">
                           <img
                             alt="Tailwind CSS Navbar component"
-                            src={currentUser.photoURL}
-                            referrerPolicy="no-referrer"
+                            src={currentUser?.photoURL}
+                            referrerPolicy="no-referrer-when-downgrade"
                           />
                         </div>
                       </div>

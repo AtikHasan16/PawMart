@@ -123,7 +123,7 @@ const Register = () => {
             <div className="form-control mb-2">
               <label className="label">
                 <span className="font-semibold text-secondary/80">
-                  Password
+                  Image URL
                 </span>
               </label>
               <label className="input input-bordered flex items-center gap-2 w-full rounded-full">
