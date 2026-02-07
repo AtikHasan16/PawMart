@@ -44,48 +44,37 @@
 }
 
 .slider-1 {
-  background-image: linear-gradient(
-      to bottom,
-      rgba(255, 0, 0, 0),
-      rgba(0, 0, 0, 1)
-    ),
+  background-image:
+    linear-gradient(to bottom, rgba(255, 0, 0, 0), rgba(0, 0, 0, 1)),
     url("./assets/catPic1.jpg");
   height: 700px;
 }
 
 .slider-2 {
-  background-image: linear-gradient(
-      to bottom,
-      rgba(255, 0, 0, 0),
-      rgba(0, 0, 0, 1)
-    ),
+  background-image:
+    linear-gradient(to bottom, rgba(255, 0, 0, 0), rgba(0, 0, 0, 1)),
     url("./assets/catPic2.jpg");
   height: 700px;
 }
 
 .slider-3 {
-  background-image: linear-gradient(
-      to bottom,
-      rgba(255, 0, 0, 0),
-      rgba(0, 0, 0, 1)
-    ),
+  background-image:
+    linear-gradient(to bottom, rgba(255, 0, 0, 0), rgba(0, 0, 0, 1)),
     url("./assets/catPic3.jpg");
   height: 700px;
 }
 
 .slider-4 {
-  background-image: linear-gradient(
-      to bottom,
-      rgba(255, 0, 0, 0),
-      rgba(0, 0, 0, 1)
-    ),
+  background-image:
+    linear-gradient(to bottom, rgba(255, 0, 0, 0), rgba(0, 0, 0, 1)),
     url("./assets/catPic4.jpg");
   height: 700px;
 }
 
 [data-theme="dark"] .main-layout {
   opacity: 1;
-  background-image: linear-gradient(
+  background-image:
+    linear-gradient(
       #3f3f3f 0.1px,
       transparent 0.1px,
       transparent calc(100% - 0.6px),
@@ -103,7 +92,8 @@
 }
 [data-theme="light"] .main-layout {
   opacity: 1;
-  background-image: linear-gradient(
+  background-image:
+    linear-gradient(
       #d4d4d4 0.1px,
       transparent 0.1px,
       transparent calc(100% - 0.6px),

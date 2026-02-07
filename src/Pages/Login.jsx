@@ -96,7 +96,10 @@ const Login = () => {
             </div>
 
             {/* Forget Text */}
-            <div className="text-right">
+            <div className=" flex justify-between items-center mb-4">
+              <button type="button" className="btn btn-sm">
+                AutoFill
+              </button>
               <a
                 href="#"
                 className="text-sm hover:underline text-secondary/70 hover:text-secondary"
