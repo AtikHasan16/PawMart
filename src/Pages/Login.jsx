@@ -45,6 +45,12 @@ const Login = () => {
         setLoading(false);
       });
   };
+
+  const handleAutoFill = (e) => {
+    e.preventDefault();
+    document.querySelector('input[name="email"]').value = "user@gmail.com";
+    document.querySelector('input[name="password"]').value = "User123";
+  };
   return (
     <div className="min-h-screen flex items-center justify-center p-4 sand login">
       <title>Login</title>
@@ -97,7 +103,7 @@ const Login = () => {
 
             {/* Forget Text */}
             <div className=" flex justify-between items-center mb-4">
-              <button type="button" className="btn btn-sm">
+              <button onClick={handleAutoFill} className="btn btn-sm">
                 AutoFill
               </button>
               <a
