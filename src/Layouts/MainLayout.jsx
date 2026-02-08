@@ -3,11 +3,13 @@ import Navbar from "../Components/Shared/Navbar";
 import { Outlet } from "react-router";
 import Footer from "../Components/Shared/Footer";
 import { Toaster } from "react-hot-toast";
+import ScrollToTop from "../Components/ScrollToTop";
 
 const MainLayout = () => {
   return (
     <>
       <div className="main-layout min-h-screen bg-accent">
+        <ScrollToTop></ScrollToTop>
         <header className="fixed top-0 left-0 w-full z-50 ">
           <Navbar></Navbar>
         </header>
