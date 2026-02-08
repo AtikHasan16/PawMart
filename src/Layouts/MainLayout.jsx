@@ -8,10 +8,10 @@ const MainLayout = () => {
   return (
     <>
       <div className="main-layout min-h-screen bg-accent">
-        <header>
+        <header className="fixed top-0 left-0 w-full z-50 ">
           <Navbar></Navbar>
         </header>
-        <main>
+        <main className="pt-24 min-h-screen">
           <Outlet></Outlet>
         </main>
         <footer>
