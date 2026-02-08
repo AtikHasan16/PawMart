@@ -5,7 +5,7 @@ import DashSide from "../Components/Dashboard/DashSide";
 
 const DashLayout = () => {
   return (
-    <div className="min-h-screen sand">
+    <div className="min-h-screen sand  bg-accent">
       {/* Fixed Sidebar */}
       <DashSide />
 

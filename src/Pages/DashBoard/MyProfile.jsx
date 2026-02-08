@@ -39,8 +39,6 @@ const MyProfile = () => {
 
   return (
     <div className="max-w-4xl mx-auto py-2 md:py-10 px-2 md:px-4">
-      
-
       <div className="bg-primary rounded-3xl shadow-lg border border-gray-700 overflow-hidden">
         {/* Profile Header with Avatar */}
         <div className="bg-linear-to-r from-secondary/20 to-secondary/5 p-8 text-center">
@@ -66,7 +64,9 @@ const MyProfile = () => {
               <FaUser size={20} className="text-secondary" />
             </div>
             <div className="flex-1">
-              <p className="text-sm opacity-60 mb-1">Display Name</p>
+              <p className="text-sm text-secondary opacity-60 mb-1">
+                Display Name
+              </p>
               <p className="text-lg font-semibold text-secondary">
                 {currentUser?.displayName || "Not set"}
               </p>
@@ -79,7 +79,9 @@ const MyProfile = () => {
               <FaEnvelope size={20} className="text-secondary" />
             </div>
             <div className="flex-1">
-              <p className="text-sm opacity-60 mb-1">Email Address</p>
+              <p className="text-sm text-secondary opacity-60 mb-1">
+                Email Address
+              </p>
               <p className="text-lg font-semibold text-secondary">
                 {currentUser?.email || "Not available"}
               </p>
@@ -92,7 +94,9 @@ const MyProfile = () => {
               <FaClock size={20} className="text-secondary" />
             </div>
             <div className="flex-1">
-              <p className="text-sm opacity-60 mb-1">Account Created</p>
+              <p className="text-sm text-secondary opacity-60 mb-1">
+                Account Created
+              </p>
               <p className="text-lg font-semibold text-secondary">
                 {formatDate(currentUser?.metadata?.creationTime)}
               </p>
@@ -105,7 +109,9 @@ const MyProfile = () => {
               <FaSignInAlt size={20} className="text-secondary" />
             </div>
             <div className="flex-1">
-              <p className="text-sm opacity-60 mb-1">Last Login</p>
+              <p className="text-sm text-secondary opacity-60 mb-1">
+                Last Login
+              </p>
               <p className="text-lg font-semibold text-secondary">
                 {formatDate(currentUser?.metadata?.lastSignInTime)}
               </p>
