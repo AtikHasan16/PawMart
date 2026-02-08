@@ -5,17 +5,21 @@ import DashSide from "../Components/Dashboard/DashSide";
 
 const DashLayout = () => {
   return (
-    <>
-      <div className="bg-accent min-h-screen">
-        <DashNav></DashNav>
-        <aside>
-          <DashSide></DashSide>
-        </aside>
-        <main>
-          <Outlet></Outlet>
+    <div className="min-h-screen sand">
+      {/* Fixed Sidebar */}
+      <DashSide />
+
+      {/* Main Content Area */}
+      <div className="ml-20">
+        {/* Top Navigation */}
+        <DashNav />
+
+        {/* Page Content */}
+        <main className="p-6">
+          <Outlet />
         </main>
       </div>
-    </>
+    </div>
   );
 };
 

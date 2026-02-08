@@ -1,34 +1,37 @@
 import React from "react";
 import { NavLink } from "react-router";
+import {
+  FaPlusCircle,
+  FaBoxes,
+  FaShoppingBag,
+  FaUserCircle,
+} from "react-icons/fa";
 
 const DashSide = () => {
+  const navItems = [
+    {
+      to: "/dashboard/add-products",
+      icon: FaPlusCircle,
+      label: "Add Listings",
+    },
+    { to: "/dashboard/my-products", icon: FaBoxes, label: "My Listings" },
+    { to: "/dashboard/my-orders", icon: FaShoppingBag, label: "My Orders" },
+    { to: "/dashboard/my-profile", icon: FaUserCircle, label: "My Profile" },
+  ];
+
   return (
-    <div>
-      <li>
+    <aside className="fixed left-0 top-0 h-screen w-20 bg-primary border-r border-gray-700 flex flex-col items-center py-6 gap-6 z-10">
+      {navItems.map((item) => (
         <NavLink
-          to={"/dashboard/add-products"}
-          className="text-secondary  text-lg "
+          key={item.to}
+          to={item.to}
+          className="flex items-center justify-center w-14 h-14 rounded-2xl text-secondary hover:bg-secondary/10 transition-colors"
+          title={item.label}
         >
-          Add Listings
+          <item.icon size={30} />
         </NavLink>
-      </li>
-      <li>
-        <NavLink
-          to={"/dashboard/my-products"}
-          className="text-secondary  text-lg "
-        >
-          My Listings
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          to={"/dashboard/my-orders"}
-          className="text-secondary  text-lg "
-        >
-          My Orders
-        </NavLink>
-      </li>
-    </div>
+      ))}
+    </aside>
   );
 };
 
