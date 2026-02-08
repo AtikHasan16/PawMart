@@ -20,7 +20,7 @@ const DashSide = () => {
   ];
 
   return (
-    <aside className="fixed left-0 top-0 h-screen p-2 bg-primary border-r border-gray-700 flex flex-col items-center py-6 gap-6 z-10">
+    <aside className="fixed left-0 top-0 h-screen p-2 bg-primary border-r border-gray-700 flex flex-col items-center justify-center py-6 gap-6 z-10">
       {navItems.map((item) => (
         <NavLink
           key={item.to}
@@ -28,7 +28,7 @@ const DashSide = () => {
           className="flex items-center justify-center p-3 rounded-2xl text-secondary hover:bg-secondary/10 transition-colors"
           title={item.label}
         >
-          <item.icon size={30} />
+          <item.icon size={25} />
         </NavLink>
       ))}
     </aside>

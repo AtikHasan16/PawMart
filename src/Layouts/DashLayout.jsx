@@ -15,7 +15,7 @@ const DashLayout = () => {
         <DashNav />
 
         {/* Page Content */}
-        <main className="pl-20">
+        <main className="pl-16 md:pl-20">
           <Outlet />
         </main>
       </div>
