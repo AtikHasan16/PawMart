@@ -8,7 +8,7 @@ const DashNav = () => {
   const { currentUser } = use(AuthContext);
 
   return (
-    <nav className="bg-primary border-b border-gray-700 px-6 py-4 ml-20">
+    <nav className="bg-primary border-b ml-13 border-gray-700 px-6 py-4">
       <div className="flex items-center justify-between">
         {/* Logo - Links to Home */}
         <Link to="/">

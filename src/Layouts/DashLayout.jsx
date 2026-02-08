@@ -10,12 +10,12 @@ const DashLayout = () => {
       <DashSide />
 
       {/* Main Content Area */}
-      <div className="ml-20">
+      <div className="">
         {/* Top Navigation */}
         <DashNav />
 
         {/* Page Content */}
-        <main className="p-6">
+        <main className="pl-20">
           <Outlet />
         </main>
       </div>
