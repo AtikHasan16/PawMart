@@ -29,21 +29,6 @@ const Navbar = () => {
       ) : (
         <>
           <li>
-            <NavLink to={"/add-products"} className="text-secondary  text-lg ">
-              Add Listings
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to={"/my-products"} className="text-secondary  text-lg ">
-              My Listings
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to={"/my-orders"} className="text-secondary  text-lg ">
-              My Orders
-            </NavLink>
-          </li>
-          <li>
             <NavLink to={"/dashboard"} className="text-secondary  text-lg ">
               Dashboard
             </NavLink>

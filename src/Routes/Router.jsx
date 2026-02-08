@@ -20,6 +20,7 @@ import Contact from "../Pages/Contact";
 import Support from "../Pages/Support";
 import DashLayout from "../Layouts/DashLayout";
 import Dashboard from "../Pages/DashBoard/Dashboard";
+import MyProfile from "../Pages/DashBoard/MyProfile";
 
 const router = createBrowserRouter([
   {
@@ -60,23 +61,7 @@ const router = createBrowserRouter([
         path: "/support",
         element: <Support></Support>,
       },
-      {
-        path: "/add-products",
-        element: (
-          <PrivateRoute>
-            <AddListing></AddListing>
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "/my-products",
 
-        element: (
-          <PrivateRoute>
-            <MyListing></MyListing>
-          </PrivateRoute>
-        ),
-      },
       {
         path: "/update-listing/:id",
         element: (
@@ -85,15 +70,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-      {
-        path: "/my-orders",
 
-        element: (
-          <PrivateRoute>
-            <MyOrders></MyOrders>
-          </PrivateRoute>
-        ),
-      },
       {
         path: "/login",
         element: (
@@ -124,6 +101,40 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Dashboard></Dashboard>,
+      },
+      {
+        path: "/dashboard/my-profile",
+        element: (
+          <PrivateRoute>
+            <MyProfile></MyProfile>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/my-orders",
+
+        element: (
+          <PrivateRoute>
+            <MyOrders></MyOrders>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/add-products",
+        element: (
+          <PrivateRoute>
+            <AddListing></AddListing>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/my-products",
+
+        element: (
+          <PrivateRoute>
+            <MyListing></MyListing>
+          </PrivateRoute>
+        ),
       },
     ],
   },
