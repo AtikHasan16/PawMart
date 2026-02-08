@@ -25,8 +25,14 @@ html {
   scroll-behavior: smooth;
 }
 
+[data-theme] .main-layout {
+  /* ... your existing code ... */
+  transition: background-image 0.5s ease, background-color 0.5s ease;
+}
+
+/* Ensure the button gradient matches your DaisyUI setup */
 .btn {
-  @apply bg-linear-90 from-[#FEEBD5] to-[#F0C899] rounded-full text-lg text-[#422C12] border-none;
+  @apply bg-linear-to-r from-[#FEEBD5] to-[#F0C899] rounded-full text-lg text-[#422C12] border-none transition-transform active:scale-95;
 }
 
 .active {
