@@ -20,6 +20,11 @@
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: var(--color-primary);
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
 .btn {
   @apply bg-linear-90 from-[#FEEBD5] to-[#F0C899] rounded-full text-lg text-[#422C12] border-none;
 }
