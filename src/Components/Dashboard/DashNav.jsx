@@ -11,9 +11,9 @@ const DashNav = () => {
     <nav className="bg-primary border-b ml-13 border-gray-700 px-6 py-4">
       <div className="flex items-center justify-between">
         {/* Logo - Links to Home */}
-        <Link to="/">
+       
           <Logo />
-        </Link>
+       
 
         {/* User Avatar */}
         <div className="flex items-center gap-4">

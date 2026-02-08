@@ -1,27 +1,41 @@
 import React, { use } from "react";
 import Container from "../Container";
-import { CgMenuGridR, CgMoon, CgSun } from "react-icons/cg";
+import { CgMenuGridR } from "react-icons/cg";
 import { Link, NavLink } from "react-router";
-// import logo from "../../assets/LOGO.png";
 import AuthContext from "../../Context/AuthContext";
 import toast from "react-hot-toast";
-import { ClockLoader } from "react-spinners";
 import { ThemeController } from "./ThemeController";
 import Logo from "./Logo";
+import {
+  FaHome,
+  FaPaw,
+  FaTachometerAlt,
+  FaInfoCircle,
+  FaEnvelope,
+  FaQuestionCircle,
+} from "react-icons/fa";
+
 const Navbar = () => {
   const { currentUser, logOutUser, loading } = use(AuthContext);
-  //console.log(loading);
 
   const links = (
     <>
       <li>
-        <NavLink to={"/"} className="text-secondary  text-lg ">
-          Home
+        <NavLink
+          to={"/"}
+          className="text-secondary text-lg flex items-center gap-2"
+        >
+          <FaHome size={18} />
+          <span>Home</span>
         </NavLink>
       </li>
       <li>
-        <NavLink to={"/pets-supply"} className="text-secondary  text-lg ">
-          Pets & Supplies
+        <NavLink
+          to={"/pets-supply"}
+          className="text-secondary text-lg flex items-center gap-2"
+        >
+          <FaPaw size={18} />
+          <span>Pets & Supplies</span>
         </NavLink>
       </li>
       {!currentUser ? (
@@ -29,25 +43,41 @@ const Navbar = () => {
       ) : (
         <>
           <li>
-            <NavLink to={"/dashboard"} className="text-secondary  text-lg ">
-              Dashboard
+            <NavLink
+              to={"/dashboard"}
+              className="text-secondary text-lg flex items-center gap-2"
+            >
+              <FaTachometerAlt size={18} />
+              <span>Dashboard</span>
             </NavLink>
           </li>
         </>
       )}
       <li>
-        <NavLink to={"/about-us"} className="text-secondary  text-lg ">
-          About Us
+        <NavLink
+          to={"/about-us"}
+          className="text-secondary text-lg flex items-center gap-2"
+        >
+          <FaInfoCircle size={18} />
+          <span>About Us</span>
         </NavLink>
       </li>
       <li>
-        <NavLink to={"/contact"} className="text-secondary  text-lg ">
-          Contact Us
+        <NavLink
+          to={"/contact"}
+          className="text-secondary text-lg flex items-center gap-2"
+        >
+          <FaEnvelope size={18} />
+          <span>Contact Us</span>
         </NavLink>
       </li>
       <li>
-        <NavLink to={"/support"} className="text-secondary  text-lg ">
-          Support
+        <NavLink
+          to={"/support"}
+          className="text-secondary text-lg flex items-center gap-2"
+        >
+          <FaQuestionCircle size={18} />
+          <span>Support</span>
         </NavLink>
       </li>
     </>

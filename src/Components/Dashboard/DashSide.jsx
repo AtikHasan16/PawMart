@@ -5,10 +5,12 @@ import {
   FaBoxes,
   FaShoppingBag,
   FaUserCircle,
+  FaHome,
 } from "react-icons/fa";
 
 const DashSide = () => {
   const navItems = [
+    { to: "/dashboard", icon: FaHome, label: "OverView" },
     {
       to: "/dashboard/add-products",
       icon: FaPlusCircle,
@@ -22,14 +24,18 @@ const DashSide = () => {
   return (
     <aside className="fixed left-0 top-0 h-screen p-2 bg-primary border-r border-gray-700 flex flex-col items-center justify-center py-6 gap-6 z-10">
       {navItems.map((item) => (
-        <NavLink
+        <div
           key={item.to}
-          to={item.to}
-          className="flex items-center justify-center p-3 rounded-2xl text-secondary hover:bg-secondary/10 transition-colors"
-          title={item.label}
+          className="tooltip tooltip-right tooltip-primary font-bold"
+          data-tip={item.label}
         >
-          <item.icon size={25} />
-        </NavLink>
+          <NavLink
+            to={item.to}
+            className="flex items-center justify-center p-3 rounded-2xl text-secondary hover:bg-secondary/10 transition-colors"
+          >
+            <item.icon size={25} />
+          </NavLink>
+        </div>
       ))}
     </aside>
   );
