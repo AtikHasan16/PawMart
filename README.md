@@ -72,7 +72,7 @@ src/
 
 1.  **Clone the Repository:**
     ```bash
-    git clone <repository-url>
+    git clone https://github.com/AtikHasan16/PawMart.git
     cd PawMart
     ```
 
