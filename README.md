@@ -1,6 +1,6 @@
 # 🐾 PawMart - Pet Adoption & Supply Portal
 
-**Live Website Link:** [Visit Now](https://project-pawmart.netlify.app/)
+**Live Website Link:** [Welcome to PawMart](https://project-pawmart.netlify.app/)
 
 ---
 
