@@ -177,16 +177,18 @@ const Navbar = () => {
                         className="menu menu-lg dropdown-content bg-primary rounded-box  mt-3  p-2 shadow"
                       >
                         <p>User Profile: </p>
-                        <li>
-                          <p className="flex justify-center">
-                            {" "}
-                            {currentUser.displayName}
-                          </p>
-                          <p className="border-b-2 flex justify-center">
-                            {" "}
-                            {currentUser.email}
-                          </p>
-                        </li>
+                        <Link to={"/dashboard/my-profile"}>
+                          <li>
+                            <p className="flex justify-center">
+                              {" "}
+                              {currentUser.displayName}
+                            </p>
+                            <p className="border-b-2 flex justify-center">
+                              {" "}
+                              {currentUser.email}
+                            </p>
+                          </li>
+                        </Link>
                         <li>
                           <p className=" flex justify-between">
                             Theme <ThemeController />
