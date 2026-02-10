@@ -9,20 +9,41 @@ import {
   FaSignInAlt,
   FaSignOutAlt,
 } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const MyProfile = () => {
   const { currentUser, logOutUser } = use(AuthContext);
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    logOutUser()
-      .then(() => {
-        toast.success("Successfully logged out");
-        navigate("/");
-      })
-      .catch((err) => {
-        toast.error(err.code);
-      });
+    // confirm modal before logging out
+
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Logout it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        logOutUser()
+          .then(() => {
+            toast.success("Successfully logged out");
+            navigate("/");
+          })
+          .catch((err) => {
+            toast.error(err.code);
+          });
+
+        Swal.fire({
+          title: "Logged Out!",
+          text: "You have been successfully logged out.",
+          icon: "success",
+        });
+      }
+    });
   };
 
   // Format date helper
